@@ -14,7 +14,7 @@
 - Página única: `src/pages/index.astro`; seções como ilhas React em `src/components/sections/`; primitivos de motion/UI em `src/components/ui/`
 - Tokens de motion centralizados em `src/lib/motion-tokens.ts` (tokens, springs, gates de device/reduced-motion)
 - `src/hooks/use-safe-motion.ts` = wrapper a11y de reduced motion
-- Design system "Aura Professional" em `src/styles/global.css` (fonte: `site-design.md`; cor/tipografia/espaçamento)
+- Design system "Aura Professional" em `src/styles/global.css` (tokens cor/tipografia/espaçamento via `@theme`)
 - Assets otimizados com `astro:assets` em `src/assets/` (fotos hero/about baixadas localmente)
 
 ## Segurança / Performance
