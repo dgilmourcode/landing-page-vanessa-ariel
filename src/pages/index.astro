@@ -4,8 +4,18 @@ import '@fontsource/arimo/500.css';
 import '@fontsource/arimo/600.css';
 import '@fontsource/arimo/700.css';
 import '@/styles/global.css';
+import { getImage } from 'astro:assets';
+import heroPortrait from '@/assets/hero-portrait.jpg';
 import { SmoothScroll } from '@/components/smooth-scroll';
 import { Header } from '@/components/sections/Header';
+import { Hero } from '@/components/sections/Hero';
+
+const heroImage = await getImage({
+  src: heroPortrait,
+  widths: [480, 768, 1024],
+  sizes: '(max-width: 1024px) 100vw, 50vw',
+  format: 'webp',
+});
 ---
 <!doctype html>
 <html lang="pt-BR">
@@ -19,9 +29,16 @@ import { Header } from '@/components/sections/Header';
     <SmoothScroll client:load />
     <Header client:load />
     <main>
-      <section id="inicio" class="flex min-h-screen items-center justify-center bg-surface-container-lowest scroll-mt-20">
-        <p class="text-body-lg text-on-surface-variant">Hero — Fase 3</p>
-      </section>
+      <Hero
+        client:load
+        image={{
+          src: heroImage.src,
+          srcSet: heroImage.srcSet,
+          sizes: heroImage.sizes,
+          width: heroImage.width,
+          height: heroImage.height,
+        }}
+      />
       <section id="servicos" class="flex min-h-[60vh] items-center justify-center scroll-mt-20">
         <p class="text-body-lg text-on-surface-variant">Serviços — Fase 4</p>
       </section>

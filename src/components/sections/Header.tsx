@@ -36,16 +36,13 @@ export function Header() {
       >
         <a href="#inicio" className="flex items-center gap-sm" aria-label="Vanessa Ariel — início">
           <img
-            src="/logo-simbolo.png"
-            alt=""
-            width={96}
-            height={96}
+            src="/logo-horizontal.png"
+            alt="Vanessa Ariel — Gestão de RH"
+            width={480}
+            height={320}
             className="h-9 w-auto md:h-10"
             loading="eager"
           />
-          <span className="hidden text-headline-md tracking-tight text-primary md:block">
-            Vanessa Ariel
-          </span>
         </a>
 
         <nav className="hidden items-center gap-xl md:flex" aria-label="Navegação principal">

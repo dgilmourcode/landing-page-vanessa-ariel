@@ -22,7 +22,8 @@
 - Sem chaves/secrets no client. Sem backend/Supabase nesta fase.
 - Animações só em `transform`/`opacity` (nunca layout); easing consistente; `prefers-reduced-motion` + gate low-end
 - Guard de montagem SSR-safe (initial = output do servidor) para evitar hydration mismatch
-- Logo local da `identidade_visual_vanessa_ariel_V2`; fonte/ícones sem CDN externo
+- Logo horizontal local otimizado em `public/logo-horizontal.png`; fotos em `src/assets/` otimizadas via `getImage` (webp/avif) e passadas como props às ilhas React (import de asset dentro de componente React no Astro retorna `[object Object]` — evitar)
+- Fonte/ícones sem CDN externo
 
 ## Comandos
 
