@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vanessa Ariel - Gestão de RH</title>
+<link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#9125c3",
+                        "on-error": "#ffffff",
+                        "surface": "#faf9fa",
+                        "surface-dim": "#dadadb",
+                        "on-secondary-fixed-variant": "#8c0058",
+                        "outline-variant": "#d2c1d4",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#f7d8ff",
+                        "inverse-on-surface": "#f1f0f1",
+                        "on-primary-fixed": "#310048",
+                        "surface-bright": "#faf9fa",
+                        "surface-container-high": "#e9e8e9",
+                        "on-surface-variant": "#4f4352",
+                        "surface-container": "#eeedee",
+                        "secondary-container": "#fd68b3",
+                        "primary-fixed-dim": "#e9b3ff",
+                        "inverse-surface": "#2f3032",
+                        "tertiary-container": "#67398d",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#4e2074",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#7f00b2",
+                        "surface-container-highest": "#e3e2e3",
+                        "background": "#faf9fa",
+                        "on-surface": "#1a1c1d",
+                        "on-primary-fixed-variant": "#7300a2",
+                        "tertiary-fixed-dim": "#e0b7ff",
+                        "outline": "#817284",
+                        "on-background": "#1a1c1d",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#dcafff",
+                        "tertiary-fixed": "#f2daff",
+                        "primary": "#5c0083",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#ffd8e6",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#e6aaff",
+                        "surface-variant": "#e3e2e3",
+                        "secondary-fixed-dim": "#ffb0d0",
+                        "on-secondary-fixed": "#3d0024",
+                        "on-tertiary-fixed-variant": "#5e3185",
+                        "secondary": "#ac2471",
+                        "inverse-primary": "#e9b3ff",
+                        "on-secondary-container": "#6c0042",
+                        "on-tertiary-fixed": "#2d004f",
+                        "surface-container-low": "#f4f3f4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "12px",
+                        "margin-desktop": "64px",
+                        "lg": "48px",
+                        "md": "24px",
+                        "xs": "4px",
+                        "base": "8px",
+                        "margin-mobile": "16px",
+                        "xl": "80px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Arimo"],
+                        "headline-lg-mobile": ["Arimo"],
+                        "body-lg": ["Arimo"],
+                        "headline-md": ["Arimo"],
+                        "label-lg": ["Arimo"],
+                        "label-sm": ["Arimo"],
+                        "headline-lg": ["Arimo"],
+                        "body-md": ["Arimo"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .brand-gradient {
+            background: linear-gradient(135deg, #7F00B2 0%, #FF69B4 100%);
+        }
+        .brand-text-gradient {
+            background: linear-gradient(135deg, #7F00B2 0%, #FF69B4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+        }
+        .floating-interaction {
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .floating-interaction:hover {
+            transform: translateY(-8px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col">
+<!-- Top Navigation -->
+<header class="bg-surface/80 backdrop-blur-md sticky top-0 z-50 flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4">
+<div class="flex items-center gap-sm">
+<img alt="Vanessa Ariel Logo" class="h-10 w-auto" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPahBpj5-iziMhcEEdE_g9i1g6jx7sXH5dE7g2qixKgPc7b35zN7OhEzaDvIWEhDHmr7ByR7YVIwseB6ZspDvJaJ_tuZEtzHf141BSqjYutpuStPhkXAFmQxb1Yowaj649in5yRlljaIv8f6SWWbbM_YTGF546xWBQKEx5TZ8DIIKbX2yoWBGkHJN4WuG6SjK9o6oNknPtJ3XjYmpcIQRUVqAK-1ldlyXLvG5Wqa5PgrcUoMezWSxd"/>
+<span class="font-display-lg text-headline-md text-primary tracking-tight hidden md:block">Vanessa Ariel</span>
+</div>
+<nav class="hidden md:flex items-center gap-xl">
+<a class="text-primary font-bold border-b-2 border-primary transition-colors py-1" href="#inicio">Início</a>
+<a class="text-on-surface-variant font-medium hover:text-secondary-container transition-colors py-1" href="#servicos">Serviços</a>
+<a class="text-on-surface-variant font-medium hover:text-secondary-container transition-colors py-1" href="#sobre">Sobre</a>
+<a class="text-on-surface-variant font-medium hover:text-secondary-container transition-colors py-1" href="#contato">Contato</a>
+</nav>
+<button class="material-symbols-outlined text-primary md:hidden">menu</button>
+<a class="hidden md:block brand-gradient text-white px-6 py-2.5 rounded-full font-label-lg hover:shadow-lg hover:shadow-primary/20 transition-all active:scale-95" href="#contato">
+            Agende uma Consultoria
+        </a>
+</header>
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="relative min-h-[90vh] flex items-center overflow-hidden px-margin-mobile md:px-margin-desktop py-xl" id="inicio">
+<!-- Background Elements -->
+<div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
+
+</div>
+<div class="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-xl items-center relative z-10">
+<div class="space-y-md">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-sm uppercase tracking-widest">
+<span class="material-symbols-outlined text-[16px]">verified</span>
+                        Gestão de RH Humana e Estratégica
+                    </div>
+<h1 class="font-display-lg text-display-lg text-primary max-w-xl leading-tight">
+                        Transformando negócios através do <span class="brand-text-gradient">potencial humano</span>.
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+                        Soluções personalizadas em gestão de pessoas para empresas que buscam excelência, retenção de talentos e um ambiente corporativo saudável.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-md pt-base">
+<a class="brand-gradient text-white px-8 py-4 rounded-full font-headline-md flex items-center justify-center gap-sm hover:scale-105 transition-transform shadow-xl shadow-primary/10" href="#">
+                            Agende uma Consultoria
+                            <span class="material-symbols-outlined">calendar_today</span>
+</a>
+<a class="border-2 border-primary text-primary px-8 py-4 rounded-full font-headline-md flex items-center justify-center gap-sm hover:bg-primary-container/10 transition-colors" href="#servicos">
+                            Conheça meus serviços
+                        </a>
+</div>
+</div>
+<div class="relative hidden lg:block">
+<div class="w-full aspect-square rounded-[2rem] overflow-hidden shadow-2xl relative z-10">
+<img class="w-full h-full object-cover" data-alt="A professional high-end portrait of Vanessa Ariel, a Brazilian HR expert, in a bright modern office setting. She has a welcoming yet authoritative smile, wearing a sophisticated mauve business blazer. The lighting is soft and airy with purple and pink subtle color grading that matches the brand aesthetic. High-quality photography, corporate minimalist style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCn9GwTHdflNRz3wsiy_gRCQBaj4SPSCUdbiEwlFFtkHs-XrIWoZ_ZPfQrh4_Bonb6I3I8eHqu1b9vbhK8qfUrB6Sc4jWOFR-NZHFXeXCnMid90vIyZF5rV_L0q8M_O5eKtj04h2wh4u0PKN16DoIW2ZOHpZofJrl-Q4XXLW8BPPbdL1pqtaIf-5OTfUrPMibUz1BurySFBMi8V0BfGue6uwMYU_tDDTSdOXE7JaJAFHs3Np-IxIJ0k"/>
+</div>
+<!-- Decorative back elements -->
+<div class="absolute -top-6 -right-6 w-full h-full border-4 border-secondary-fixed rounded-[2rem] -z-10"></div>
+<div class="absolute -bottom-10 -left-10 p-6 glass-card rounded-2xl shadow-xl z-20 flex items-center gap-md">
+<div class="w-12 h-12 bg-primary-container rounded-full flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined">groups</span>
+</div>
+<div>
+<p class="font-headline-md text-primary">+10 anos</p>
+<p class="font-label-sm text-on-surface-variant">de experiência em RH</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section (Bento Grid) -->
+<section class="py-xl bg-surface-container-lowest px-margin-mobile md:px-margin-desktop" id="servicos">
+<div class="container mx-auto">
+<div class="text-center mb-xl space-y-sm">
+<h2 class="font-headline-lg text-headline-lg text-primary">Nossas Especialidades</h2>
+<p class="font-body-md text-on-surface-variant max-w-2xl mx-auto">Desenvolvemos estratégias ponta a ponta para que seu RH seja o motor de crescimento da sua organização.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+<!-- Service 1 -->
+<div class="glass-card p-xl rounded-3xl floating-interaction group">
+<div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-md group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-primary text-3xl group-hover:text-white">person_search</span>
+</div>
+<h3 class="font-headline-md text-primary mb-sm">Recrutamento e Seleção</h3>
+<p class="font-body-md text-on-surface-variant mb-md">
+                            Atração de talentos alinhados à cultura e aos objetivos do seu negócio através de processos humanizados e técnicos.
+                        </p>
+<ul class="space-y-xs text-on-surface-variant font-label-lg">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">check_circle</span> Hunting especializado</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">check_circle</span> Assessment técnico</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">check_circle</span> Fit cultural profundo</li>
+</ul>
+</div>
+<!-- Service 2 -->
+<div class="brand-gradient p-xl rounded-3xl floating-interaction text-white shadow-2xl shadow-primary/20">
+<div class="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center mb-md">
+<span class="material-symbols-outlined text-white text-3xl">model_training</span>
+</div>
+<h3 class="font-headline-md mb-sm">Treinamentos</h3>
+<p class="font-body-md text-white/90 mb-md">
+                            Capacitação de equipes e lideranças para alta performance, comunicação assertiva e inteligência emocional.
+                        </p>
+<ul class="space-y-xs text-white/80 font-label-lg">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-white text-sm">check_circle</span> Workshops in-company</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-white text-sm">check_circle</span> Desenvolvimento de líderes</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-white text-sm">check_circle</span> Soft Skills &amp; Feedback</li>
+</ul>
+</div>
+<!-- Service 3 -->
+<div class="glass-card p-xl rounded-3xl floating-interaction group">
+<div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-md group-hover:bg-primary transition-colors">
+<span class="material-symbols-outlined text-primary text-3xl group-hover:text-white">strategy</span>
+</div>
+<h3 class="font-headline-md text-primary mb-sm">Consultoria Estratégica</h3>
+<p class="font-body-md text-on-surface-variant mb-md">
+                            Estruturação completa de departamentos de RH, Cargos &amp; Salários e Pesquisas de Clima Organizacional.
+                        </p>
+<ul class="space-y-xs text-on-surface-variant font-label-lg">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">check_circle</span> Clima Organizacional</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">check_circle</span> Plano de Carreira</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">check_circle</span> Employer Branding</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section class="py-xl px-margin-mobile md:px-margin-desktop overflow-hidden" id="sobre">
+<div class="container mx-auto flex flex-col md:flex-row gap-xl items-center">
+<div class="w-full md:w-1/2 relative">
+<div class="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="Action shot of Vanessa Ariel leading a vibrant corporate workshop. She is actively engaging with a diverse group of employees in a modern, sunlit meeting room. The atmosphere is warm, inclusive, and professional. The image utilizes high-quality depth of field and a soft color palette of lilac and rose gold accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAz2IpS0KqXo-7MZ5klqLb1Vo_rnop-BDFwPnFJ-kBKVEm1DzmtwG8Vwf-qh3zB-9_6Bb01l0O2vriW9ekMKsWQvmFOT8_Qw1TK5fiwlEs0Pfkg__T6x5kkXh-oufkmafudbKu5jilF2EQFo9W73sYX9oX6aeYn3b-JC1qivGSW0gICvkyThOlCI7p466-HPK0gXK6naSxs47lcV8_Uiq2WjrLF6YI7z-CDf2R2FZtFpeim3y0o2Ccl"/>
+</div>
+<div class="absolute -bottom-6 -right-6 p-xl bg-surface-container-highest rounded-2xl hidden lg:block">
+<p class="italic text-primary font-body-lg text-lg">"Pessoas não são recursos, são o coração do negócio."</p>
+</div>
+</div>
+<div class="w-full md:w-1/2 space-y-md">
+<h2 class="font-headline-lg text-headline-lg text-primary">Sobre Vanessa Ariel</h2>
+<div class="h-1 w-20 brand-gradient rounded-full mb-md"></div>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                        Com uma trajetória dedicada à psicologia organizacional e gestão estratégica, Vanessa Ariel acredita que o sucesso de uma empresa está intrinsecamente ligado ao bem-estar e desenvolvimento de seus colaboradores.
+                    </p>
+<p class="font-body-md text-on-surface-variant">
+                        Minha missão é desmistificar o RH transacional e elevar a área ao seu papel fundamental: parceira estratégica do negócio. Através de uma visão sistêmica e acolhedora, auxilio empreendedores a construir culturas fortes e equipes de alta performance.
+                    </p>
+<div class="grid grid-cols-2 gap-md py-md">
+<div class="p-base bg-surface-container-low rounded-xl">
+<h4 class="font-headline-md text-secondary">Acolhimento</h4>
+<p class="font-label-sm text-on-surface-variant">Escuta ativa em todos os processos.</p>
+</div>
+<div class="p-base bg-surface-container-low rounded-xl">
+<h4 class="font-headline-md text-secondary">Estratégia</h4>
+<p class="font-label-sm text-on-surface-variant">Foco em resultados sustentáveis.</p>
+</div>
+</div>
+<a class="inline-flex items-center gap-sm text-primary font-bold hover:gap-md transition-all" href="https://linkedin.com" target="_blank">
+                        Ver perfil no LinkedIn
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- CTA / Contact Section -->
+<section class="py-xl px-margin-mobile md:px-margin-desktop bg-primary text-white relative overflow-hidden" id="contato">
+
+<div class="container mx-auto max-w-4xl text-center relative z-10">
+<h2 class="font-headline-lg text-display-lg mb-md">Pronto para elevar o nível da sua gestão de pessoas?</h2>
+<p class="font-body-lg text-white/80 mb-xl">
+                    Vamos conversar sobre as necessidades específicas da sua empresa e como podemos criar um ambiente mais produtivo e humano juntos.
+                </p>
+<div class="flex flex-col sm:flex-row justify-center gap-md">
+<a class="bg-white text-primary px-xl py-4 rounded-full font-headline-md hover:bg-white/90 transition-all shadow-xl" href="mailto:contato@vanessaariel.com.br">
+                        Enviar E-mail
+                    </a>
+<a class="border-2 border-white/30 bg-white/10 backdrop-blur-sm px-xl py-4 rounded-full font-headline-md hover:bg-white/20 transition-all" href="https://wa.me/5500000000000">
+                        Falar no WhatsApp
+                    </a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-xl px-margin-desktop mt-auto flex flex-col md:flex-row justify-between items-center gap-md bg-surface-container-highest border-t border-outline-variant">
+<div class="flex flex-col items-center md:items-start gap-sm">
+<div class="font-headline-md text-headline-md text-primary flex items-center gap-2">
+<img alt="Logo small" class="h-8" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPahBpj5-iziMhcEEdE_g9i1g6jx7sXH5dE7g2qixKgPc7b35zN7OhEzaDvIWEhDHmr7ByR7YVIwseB6ZspDvJaJ_tuZEtzHf141BSqjYutpuStPhkXAFmQxb1Yowaj649in5yRlljaIv8f6SWWbbM_YTGF546xWBQKEx5TZ8DIIKbX2yoWBGkHJN4WuG6SjK9o6oNknPtJ3XjYmpcIQRUVqAK-1ldlyXLvG5Wqa5PgrcUoMezWSxd"/>
+                Vanessa Ariel
+            </div>
+<p class="font-body-md text-on-surface-variant text-center md:text-left">
+                © 2024 Vanessa Ariel - Gestão de RH. Todos os direitos reservados.
+            </p>
+</div>
+<nav class="flex gap-lg">
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-lg" href="#">Privacidade</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors font-label-lg" href="#">Termos de Uso</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-lg flex items-center gap-1" href="https://linkedin.com">
+                LinkedIn
+                <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+</a>
+</nav>
+</footer>
+<!-- Mobile Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 md:hidden bg-surface dark:bg-surface-container-lowest shadow-[0_-4px_12px_rgba(75,28,113,0.05)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1.5 active:scale-90 transition-transform" href="#inicio">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Início</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-secondary-fixed-dim/20 transition-all rounded-full p-2" href="#servicos">
+<span class="material-symbols-outlined">work_outline</span>
+<span class="font-label-sm text-label-sm">Serviços</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-secondary-fixed-dim/20 transition-all rounded-full p-2" href="#sobre">
+<span class="material-symbols-outlined">person_search</span>
+<span class="font-label-sm text-label-sm">Sobre</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-secondary-fixed-dim/20 transition-all rounded-full p-2" href="#contato">
+<span class="material-symbols-outlined">mail</span>
+<span class="font-label-sm text-label-sm">Contato</span>
+</a>
+</nav>
+<script>
+        // Simple scroll spy for active nav state
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('header nav a, nav.fixed a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-primary', 'font-bold', 'border-b-2', 'border-primary', 'bg-primary-container', 'text-on-primary-container');
+                link.classList.add('text-on-surface-variant', 'font-medium');
+                
+                if (link.getAttribute('href').includes(current)) {
+                    if (link.parentElement.tagName === 'NAV' && link.parentElement.classList.contains('fixed')) {
+                         link.classList.add('bg-primary-container', 'text-on-primary-container');
+                         link.classList.remove('text-on-surface-variant');
+                    } else {
+                        link.classList.add('text-primary', 'font-bold', 'border-b-2', 'border-primary');
+                        link.classList.remove('text-on-surface-variant', 'font-medium');
+                    }
+                }
+            });
+        });
+    </script>
+</body></html>
