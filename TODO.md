@@ -2,7 +2,7 @@
 
 ## Status Atual
 
-Fase 4 concluída — Serviços bento grid. Aguardando autorização para Fase 5.
+Fase 5 concluída — Sobre. Aguardando autorização para Fase 6.
 
 ## Sessões
 
@@ -13,10 +13,11 @@ Fase 4 concluída — Serviços bento grid. Aguardando autorização para Fase 5
 | 2026-08-01 | Fase 2: `SmoothScroll` (Lenis + anchor scrollTo), `use-scroll-spy` (IntersectionObserver), `lib/sections.ts`, Header sticky (blur/shrink, indicador ativo scaleX, menu mobile com AnimatePresence), layout base em `index.astro` com seções-âncora; logo otimizado para `public/logo-simbolo.png`  |
 | 2026-08-01 | Fase 3: Hero cinemático (badge slide-in, H1 word-reveal com rotateX, imagem scale-in + parallax, orbes float, card glass "+10 anos", CTA magnético); primitivos UI `ScrollReveal`/`AnimatedText`/`MagneticButton`/`ParallaxLayer`; `getImage` webp; logo trocado para `public/logo-horizontal.png` |
 | 2026-08-01 | Fase 4: Serviços bento grid (3 cards, destaque em gradiente, stagger `ScrollReveal`, tilt 3D `Card3D`, `animate-shake` no ícone via `ShakeIcon`/`group-hover`)                                                                                 |
+| 2026-08-01 | Fase 5: Sobre (imagem parallax `ParallaxLayer`, quote slide-in, valores com stagger, link LinkedIn com seta animada); `getImage` webp para about-workshop                                                                                 |
 
 ## Pendências
 
-- Fase 5: Sobre
+- Fase 6: Contato/CTA + Footer + MobileNav
 - Fase 5: Sobre
 - Fase 6: Contato/CTA + Footer + MobileNav
 - Fase 7: LGPDBanner + WhatsAppFloat + contadores
