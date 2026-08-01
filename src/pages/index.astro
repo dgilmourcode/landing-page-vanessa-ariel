@@ -4,6 +4,8 @@ import '@fontsource/arimo/500.css';
 import '@fontsource/arimo/600.css';
 import '@fontsource/arimo/700.css';
 import '@/styles/global.css';
+import { SmoothScroll } from '@/components/smooth-scroll';
+import { Header } from '@/components/sections/Header';
 ---
 <!doctype html>
 <html lang="pt-BR">
@@ -13,9 +15,22 @@ import '@/styles/global.css';
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>Vanessa Ariel - Gestão de RH</title>
   </head>
-  <body>
+  <body class="min-h-screen">
+    <SmoothScroll client:load />
+    <Header client:load />
     <main>
-      <h1>Vanessa Ariel - Gestão de RH</h1>
+      <section id="inicio" class="flex min-h-screen items-center justify-center bg-surface-container-lowest scroll-mt-20">
+        <p class="text-body-lg text-on-surface-variant">Hero — Fase 3</p>
+      </section>
+      <section id="servicos" class="flex min-h-[60vh] items-center justify-center scroll-mt-20">
+        <p class="text-body-lg text-on-surface-variant">Serviços — Fase 4</p>
+      </section>
+      <section id="sobre" class="flex min-h-[60vh] items-center justify-center bg-surface-container-lowest scroll-mt-20">
+        <p class="text-body-lg text-on-surface-variant">Sobre — Fase 5</p>
+      </section>
+      <section id="contato" class="flex min-h-[60vh] items-center justify-center scroll-mt-20">
+        <p class="text-body-lg text-on-surface-variant">Contato — Fase 6</p>
+      </section>
     </main>
   </body>
 </html>
