@@ -1,6 +1,10 @@
 node_modules/
 dist/
 .astro/
+identidade_visual_vanessa_ariel_V2/
+logo/
+banner1/
+banner2/
 .env
 .env.*
 .DS_Store
