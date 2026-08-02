@@ -2,7 +2,7 @@
 
 ## Status Atual
 
-Fase 6 e 7 concluídas — landing completa (Hero banner, Sobre, Pilares, Serviços, Contato, Footer, MobileNav, LGPD, WhatsAppFloat). Aguardando ajustes/correções e Fase 8.
+Seções de FAQ (acordeão) e formulário de contato (envio via WhatsApp) adicionadas. Aguardando próximos ajustes/Fase 8.
 
 ## Sessões
 
@@ -18,7 +18,9 @@ Fase 6 e 7 concluídas — landing completa (Hero banner, Sobre, Pilares, Servi�
 | 2026-08-01 | Hero simplificado: banner de imagem só (`hero-section.webp`, 38KB, otimizado pelo usuário), sem texto, inteiro clicável → `#contato`; nova seção `Pillars` (`pilares-section.webp`, 58KB) = "Nossos Pilares de Atuação" como imagem de fundo; assets webp passados direto como props (sem re-encode)                 |
 | 2026-08-01 | Reordenação de seções: Sobre → Pilares → Serviços; Pillars corrigida para `<img w-full h-auto>` (sem corte)                                                                                                                                                                                                          |
 | 2026-08-01 | Fase 6: Contato/CTA (mailto contato@vanessaariel.com.br + wa.me/5586994829203, fundo `hero-gradient`), Footer (logo-horizontal, © 2026, links), MobileNav barra inferior (scroll-spy, sem hambúrguer)                                                                                                                |
-| 2026-08-01 | Fase 7: LGPDBanner (consentimento em localStorage, `lgpd-consent`) + WhatsAppFloat (ícone real da marca, `wa.me/5586994829203`)                                                                                                                                                                                      |
+| 2026-08-01 | Fase 7: LGPDBanner (consentimento em localStorage, `lgpd-consent`) + WhatsAppFloat (ícone real da marca, `wa.me/5586994829203`)                                                                                                                |
+| 2026-08-01 | Sobre usa `about-section.webp`; balão da citação vira `<blockquote>` de destaque antes do LinkedIn; Footer/Contato com logos oficiais via `@phosphor-icons/react` (LinkedinLogo, InstagramLogo, WhatsappLogo)                               |
+| 2026-08-01 | FAQ (acordeão `AnimatePresence`, 5 perguntas) + Contato com formulário (nome/empresa/email/whatsapp/mensagem, envio compõe mensagem → `wa.me` com texto pré-preenchido) + canais de contato (e-mail, WhatsApp, sociais)                         |
 
 ## Pendências
 
