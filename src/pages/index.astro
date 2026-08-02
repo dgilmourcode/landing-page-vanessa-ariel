@@ -17,6 +17,8 @@ import { Services } from '@/components/sections/Services';
 import { Contact } from '@/components/sections/Contact';
 import { Footer } from '@/components/sections/Footer';
 import { MobileNav } from '@/components/sections/MobileNav';
+import { LGPDBanner } from '@/components/sections/LGPDBanner';
+import { WhatsAppFloat } from '@/components/sections/WhatsAppFloat';
 
 const aboutImage = await getImage({
   src: aboutWorkshop,
@@ -54,5 +56,7 @@ const aboutImage = await getImage({
     </main>
     <Footer />
     <MobileNav client:load />
+    <WhatsAppFloat client:load />
+    <LGPDBanner client:load />
   </body>
 </html>
