@@ -11,9 +11,12 @@ import pillarsSection from '@/assets/pilares-section.webp';
 import { SmoothScroll } from '@/components/smooth-scroll';
 import { Header } from '@/components/sections/Header';
 import { Hero } from '@/components/sections/Hero';
-import { Services } from '@/components/sections/Services';
-import { Pillars } from '@/components/sections/Pillars';
 import { About } from '@/components/sections/About';
+import { Pillars } from '@/components/sections/Pillars';
+import { Services } from '@/components/sections/Services';
+import { Contact } from '@/components/sections/Contact';
+import { Footer } from '@/components/sections/Footer';
+import { MobileNav } from '@/components/sections/MobileNav';
 
 const aboutImage = await getImage({
   src: aboutWorkshop,
@@ -30,7 +33,7 @@ const aboutImage = await getImage({
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>Vanessa Ariel - Gestão de RH</title>
   </head>
-  <body class="min-h-screen">
+  <body class="min-h-screen pb-16 md:pb-0">
     <SmoothScroll client:load />
     <Header client:load />
     <main>
@@ -47,9 +50,9 @@ const aboutImage = await getImage({
       />
       <Pillars client:visible background={pillarsSection} />
       <Services client:visible />
-      <section id="contato" class="flex min-h-[60vh] items-center justify-center scroll-mt-20">
-        <p class="text-body-lg text-on-surface-variant">Contato — Fase 6</p>
-      </section>
+      <Contact client:visible />
     </main>
+    <Footer />
+    <MobileNav client:load />
   </body>
 </html>
