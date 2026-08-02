@@ -5,20 +5,15 @@ import '@fontsource/arimo/600.css';
 import '@fontsource/arimo/700.css';
 import '@/styles/global.css';
 import { getImage } from 'astro:assets';
-import heroPortrait from '@/assets/hero-portrait.jpg';
+import heroSection from '@/assets/hero-section.webp';
 import aboutWorkshop from '@/assets/about-workshop.jpg';
+import pillarsSection from '@/assets/pilares-section.webp';
 import { SmoothScroll } from '@/components/smooth-scroll';
 import { Header } from '@/components/sections/Header';
 import { Hero } from '@/components/sections/Hero';
 import { Services } from '@/components/sections/Services';
+import { Pillars } from '@/components/sections/Pillars';
 import { About } from '@/components/sections/About';
-
-const heroImage = await getImage({
-  src: heroPortrait,
-  widths: [480, 768, 1024],
-  sizes: '(max-width: 1024px) 100vw, 50vw',
-  format: 'webp',
-});
 
 const aboutImage = await getImage({
   src: aboutWorkshop,
@@ -39,17 +34,9 @@ const aboutImage = await getImage({
     <SmoothScroll client:load />
     <Header client:load />
     <main>
-      <Hero
-        client:load
-        image={{
-          src: heroImage.src,
-          srcSet: heroImage.srcSet,
-          sizes: heroImage.sizes,
-          width: heroImage.width,
-          height: heroImage.height,
-        }}
-      />
+      <Hero client:load background={heroSection} />
       <Services client:visible />
+      <Pillars client:visible background={pillarsSection} />
       <About
         client:visible
         image={{
