@@ -4,9 +4,8 @@ import '@fontsource/arimo/500.css';
 import '@fontsource/arimo/600.css';
 import '@fontsource/arimo/700.css';
 import '@/styles/global.css';
-import { getImage } from 'astro:assets';
 import heroSection from '@/assets/hero-section.webp';
-import aboutWorkshop from '@/assets/about-workshop.jpg';
+import aboutSection from '@/assets/about-section.webp';
 import pillarsSection from '@/assets/pilares-section.webp';
 import { SmoothScroll } from '@/components/smooth-scroll';
 import { Header } from '@/components/sections/Header';
@@ -19,13 +18,6 @@ import { Footer } from '@/components/sections/Footer';
 import { MobileNav } from '@/components/sections/MobileNav';
 import { LGPDBanner } from '@/components/sections/LGPDBanner';
 import { WhatsAppFloat } from '@/components/sections/WhatsAppFloat';
-
-const aboutImage = await getImage({
-  src: aboutWorkshop,
-  widths: [480, 768, 1024],
-  sizes: '(max-width: 768px) 100vw, 50vw',
-  format: 'webp',
-});
 ---
 <!doctype html>
 <html lang="pt-BR">
@@ -40,16 +32,7 @@ const aboutImage = await getImage({
     <Header client:load />
     <main>
       <Hero client:load background={heroSection} />
-      <About
-        client:visible
-        image={{
-          src: aboutImage.src,
-          srcSet: aboutImage.srcSet,
-          sizes: aboutImage.sizes,
-          width: aboutImage.width,
-          height: aboutImage.height,
-        }}
-      />
+      <About client:visible image={aboutSection} />
       <Pillars client:visible background={pillarsSection} />
       <Services client:visible />
       <Contact client:visible />
