@@ -2,10 +2,10 @@
 
 import { type FormEvent, useState } from 'react';
 import { InstagramLogo, LinkedinLogo, WhatsappLogo } from '@phosphor-icons/react';
-import { Mail, Send } from 'lucide-react';
+import { CheckCircle2, Mail, Send } from 'lucide-react';
 import { MotionIn } from '@/components/ui/MotionIn';
 
-const EMAIL = 'contato@vanessaariel.com.br';
+const EMAIL = 'vanessaarielmatos@gmail.com';
 const WHATSAPP_URL = 'https://wa.me/5586994829203';
 
 const inputClass =
@@ -15,6 +15,7 @@ const labelClass = 'text-label-sm font-semibold uppercase tracking-widest text-w
 
 export function Contact() {
   const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -35,6 +36,8 @@ export function Contact() {
     setSending(true);
     window.open(`${WHATSAPP_URL}?text=${encodeURIComponent(texto)}`, '_blank', 'noopener');
     setSending(false);
+    form.reset();
+    setSent(true);
   };
 
   return (
@@ -103,7 +106,7 @@ export function Contact() {
                 <LinkedinLogo weight="fill" className="h-5 w-5" />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/vanessaarielbrito/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -116,93 +119,113 @@ export function Contact() {
         </MotionIn>
 
         <MotionIn delay={0.15} direction="right">
-          <form
-            onSubmit={handleSubmit}
-            className="flex flex-col gap-md rounded-3xl border border-white/20 bg-white/10 p-xl shadow-2xl backdrop-blur-md"
-          >
-            <div className="grid grid-cols-1 gap-md sm:grid-cols-2">
-              <div className="flex flex-col gap-sm">
-                <label htmlFor="nome" className={labelClass}>
-                  Nome *
-                </label>
-                <input
-                  id="nome"
-                  name="nome"
-                  type="text"
-                  required
-                  placeholder="Seu nome"
-                  className={inputClass}
-                />
-              </div>
-              <div className="flex flex-col gap-sm">
-                <label htmlFor="empresa" className={labelClass}>
-                  Empresa
-                </label>
-                <input
-                  id="empresa"
-                  name="empresa"
-                  type="text"
-                  placeholder="Nome da empresa"
-                  className={inputClass}
-                />
-              </div>
+          {sent ? (
+            <div className="flex min-h-[420px] flex-col items-center justify-center gap-md rounded-3xl border border-white/20 bg-white/10 p-xl text-center shadow-2xl backdrop-blur-md">
+              <span className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald-400/20 text-emerald-300">
+                <CheckCircle2 className="h-9 w-9" />
+              </span>
+              <h3 className="text-headline-lg font-semibold text-white">Mensagem enviada!</h3>
+              <p className="max-w-sm text-body-md text-white/80">
+                Sua mensagem foi aberta no WhatsApp com tudo preenchido. Em breve retorno o seu
+                contato. Muito obrigada!
+              </p>
+              <button
+                type="button"
+                onClick={() => setSent(false)}
+                className="inline-flex items-center justify-center gap-sm rounded-full bg-white px-8 py-4 text-headline-md font-semibold text-primary shadow-xl shadow-black/20 transition-transform duration-300 hover:scale-[1.03] active:scale-95"
+              >
+                Enviar nova mensagem
+              </button>
             </div>
-
-            <div className="grid grid-cols-1 gap-md sm:grid-cols-2">
-              <div className="flex flex-col gap-sm">
-                <label htmlFor="email" className={labelClass}>
-                  E-mail *
-                </label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                  placeholder="seu@email.com"
-                  className={inputClass}
-                />
-              </div>
-              <div className="flex flex-col gap-sm">
-                <label htmlFor="whatsapp" className={labelClass}>
-                  WhatsApp
-                </label>
-                <input
-                  id="whatsapp"
-                  name="whatsapp"
-                  type="tel"
-                  placeholder="(00) 00000-0000"
-                  className={inputClass}
-                />
-              </div>
-            </div>
-
-            <div className="flex flex-col gap-sm">
-              <label htmlFor="mensagem" className={labelClass}>
-                Mensagem *
-              </label>
-              <textarea
-                id="mensagem"
-                name="mensagem"
-                required
-                rows={4}
-                placeholder="Conte sobre o que sua empresa precisa…"
-                className={`${inputClass} resize-none`}
-              />
-            </div>
-
-            <button
-              type="submit"
-              disabled={sending}
-              className="inline-flex items-center justify-center gap-sm rounded-full bg-white px-8 py-4 text-headline-md font-semibold text-primary shadow-xl shadow-black/20 transition-transform duration-300 hover:scale-[1.03] active:scale-95 disabled:cursor-not-allowed disabled:opacity-60"
+          ) : (
+            <form
+              onSubmit={handleSubmit}
+              className="flex flex-col gap-md rounded-3xl border border-white/20 bg-white/10 p-xl shadow-2xl backdrop-blur-md"
             >
-              Enviar via WhatsApp
-              <Send className="h-5 w-5" />
-            </button>
-            <p className="text-label-sm text-white/60">
-              Ao enviar, você será direcionado ao WhatsApp com a mensagem pronta. Seus dados não são
-              armazenados no site.
-            </p>
-          </form>
+              <div className="grid grid-cols-1 gap-md sm:grid-cols-2">
+                <div className="flex flex-col gap-sm">
+                  <label htmlFor="nome" className={labelClass}>
+                    Nome *
+                  </label>
+                  <input
+                    id="nome"
+                    name="nome"
+                    type="text"
+                    required
+                    placeholder="Seu nome"
+                    className={inputClass}
+                  />
+                </div>
+                <div className="flex flex-col gap-sm">
+                  <label htmlFor="empresa" className={labelClass}>
+                    Empresa
+                  </label>
+                  <input
+                    id="empresa"
+                    name="empresa"
+                    type="text"
+                    placeholder="Nome da empresa"
+                    className={inputClass}
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 gap-md sm:grid-cols-2">
+                <div className="flex flex-col gap-sm">
+                  <label htmlFor="email" className={labelClass}>
+                    E-mail *
+                  </label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    required
+                    placeholder="seu@email.com"
+                    className={inputClass}
+                  />
+                </div>
+                <div className="flex flex-col gap-sm">
+                  <label htmlFor="whatsapp" className={labelClass}>
+                    WhatsApp
+                  </label>
+                  <input
+                    id="whatsapp"
+                    name="whatsapp"
+                    type="tel"
+                    placeholder="(00) 00000-0000"
+                    className={inputClass}
+                  />
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-sm">
+                <label htmlFor="mensagem" className={labelClass}>
+                  Mensagem *
+                </label>
+                <textarea
+                  id="mensagem"
+                  name="mensagem"
+                  required
+                  rows={4}
+                  placeholder="Conte sobre o que sua empresa precisa…"
+                  className={`${inputClass} resize-none`}
+                />
+              </div>
+
+              <button
+                type="submit"
+                disabled={sending}
+                className="inline-flex items-center justify-center gap-sm rounded-full bg-white px-8 py-4 text-headline-md font-semibold text-primary shadow-xl shadow-black/20 transition-transform duration-300 hover:scale-[1.03] active:scale-95 disabled:cursor-not-allowed disabled:opacity-60"
+              >
+                Enviar via WhatsApp
+                <Send className="h-5 w-5" />
+              </button>
+              <p className="text-label-sm text-white/60">
+                Ao enviar, você será direcionado ao WhatsApp com a mensagem pronta. Seus dados não
+                são armazenados no site.
+              </p>
+            </form>
+          )}
         </MotionIn>
       </div>
     </section>

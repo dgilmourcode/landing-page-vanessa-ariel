@@ -4,7 +4,7 @@ const WHATSAPP_URL = 'https://wa.me/5586994829203';
 
 const socials = [
   { label: 'LinkedIn', href: 'https://linkedin.com', Icon: LinkedinLogo },
-  { label: 'Instagram', href: 'https://instagram.com', Icon: InstagramLogo },
+  { label: 'Instagram', href: 'https://www.instagram.com/vanessaarielbrito/', Icon: InstagramLogo },
   { label: 'WhatsApp', href: WHATSAPP_URL, Icon: WhatsappLogo },
 ];
 
