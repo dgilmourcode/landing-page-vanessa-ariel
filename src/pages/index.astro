@@ -35,8 +35,6 @@ const aboutImage = await getImage({
     <Header client:load />
     <main>
       <Hero client:load background={heroSection} />
-      <Services client:visible />
-      <Pillars client:visible background={pillarsSection} />
       <About
         client:visible
         image={{
@@ -47,6 +45,8 @@ const aboutImage = await getImage({
           height: aboutImage.height,
         }}
       />
+      <Pillars client:visible background={pillarsSection} />
+      <Services client:visible />
       <section id="contato" class="flex min-h-[60vh] items-center justify-center scroll-mt-20">
         <p class="text-body-lg text-on-surface-variant">Contato — Fase 6</p>
       </section>
