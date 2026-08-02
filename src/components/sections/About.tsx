@@ -26,27 +26,8 @@ export function About({ image }: AboutProps) {
       id="sobre"
       className="scroll-mt-20 overflow-hidden px-margin-mobile py-xl md:px-margin-desktop"
     >
-      <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-xl md:flex-row">
-        <MotionIn direction="left" className="relative order-2 w-full md:order-1 md:w-1/2">
-          <ParallaxLayer speed={0.12} maxOffset={80}>
-            <div className="relative">
-              <div className="aspect-[4/5] overflow-hidden rounded-3xl shadow-2xl">
-                <img
-                  src={image.src}
-                  srcSet={image.srcSet}
-                  sizes={image.sizes}
-                  width={image.width}
-                  height={image.height}
-                  alt="Vanessa Ariel conduzindo um workshop corporativo com equipe em sala moderna."
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          </ParallaxLayer>
-        </MotionIn>
-
-        <div className="order-1 w-full min-w-0 space-y-md md:order-2 md:w-1/2">
+      <div className="mx-auto grid w-full max-w-[85rem] grid-cols-1 items-center gap-xl md:grid-cols-2">
+        <div className="min-w-0 md:col-start-2 md:row-start-1">
           <MotionIn direction="right">
             <h2 className="text-headline-lg font-semibold text-primary">Sobre Vanessa Ariel</h2>
             <div className="mt-base mb-md h-1 w-20 rounded-full brand-gradient" />
@@ -68,7 +49,31 @@ export function About({ image }: AboutProps) {
               performance.
             </p>
           </MotionIn>
+        </div>
 
+        <MotionIn
+          direction="left"
+          className="relative w-full md:col-start-1 md:row-span-2 md:row-start-1"
+        >
+          <ParallaxLayer speed={0.12} maxOffset={80}>
+            <div className="relative">
+              <div className="aspect-[5/6] overflow-hidden rounded-3xl shadow-2xl">
+                <img
+                  src={image.src}
+                  srcSet={image.srcSet}
+                  sizes={image.sizes}
+                  width={image.width}
+                  height={image.height}
+                  alt="Vanessa Ariel conduzindo um workshop corporativo com equipe em sala moderna."
+                  className="h-full w-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </ParallaxLayer>
+        </MotionIn>
+
+        <div className="min-w-0 md:col-start-2 md:row-start-2">
           <div className="grid grid-cols-2 gap-md py-md">
             {values.map((value, index) => (
               <MotionIn
