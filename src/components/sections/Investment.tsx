@@ -60,14 +60,14 @@ export function Investment() {
 
               <div className="w-full md:w-80 md:shrink-0">
                 <div className="flex flex-col items-center gap-md rounded-2xl bg-white/10 p-xl backdrop-blur-md text-center">
-                  <p className="text-headline-md font-semibold leading-snug text-white">
+                  <p className="text-balance text-body-lg font-semibold leading-snug text-white">
                     Torne seu RH um pilar de crescimento da sua empresa
                   </p>
                   <a
                     href={WHATSAPP_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex w-full items-center justify-center gap-sm rounded-full bg-white px-4 py-3.5 text-body-lg font-semibold text-primary shadow-xl transition-transform duration-300 hover:scale-105 active:scale-95 md:w-auto md:px-5 md:py-4 md:text-headline-md"
+                    className="inline-flex items-center justify-center gap-sm rounded-full bg-white px-4 py-3 text-body-lg font-semibold text-primary shadow-xl transition-transform duration-300 hover:scale-105 active:scale-95 md:px-6 md:py-4 md:text-headline-md"
                   >
                     Quero saber mais
                     <ArrowRight className="h-5 w-5 shrink-0" />
