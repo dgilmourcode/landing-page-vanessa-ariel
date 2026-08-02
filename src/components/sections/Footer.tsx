@@ -1,4 +1,12 @@
-import { ExternalLink } from 'lucide-react';
+import { InstagramLogo, LinkedinLogo, WhatsappLogo } from '@phosphor-icons/react';
+
+const WHATSAPP_URL = 'https://wa.me/5586994829203';
+
+const socials = [
+  { label: 'LinkedIn', href: 'https://linkedin.com', Icon: LinkedinLogo },
+  { label: 'Instagram', href: 'https://instagram.com', Icon: InstagramLogo },
+  { label: 'WhatsApp', href: WHATSAPP_URL, Icon: WhatsappLogo },
+];
 
 export function Footer() {
   return (
@@ -18,29 +26,36 @@ export function Footer() {
           </p>
         </div>
 
-        <nav className="flex gap-lg" aria-label="Links do rodapé">
-          <a
-            href="#"
-            className="text-label-lg text-on-surface-variant transition-colors hover:text-secondary"
-          >
-            Privacidade
-          </a>
-          <a
-            href="#"
-            className="text-label-lg text-on-surface-variant transition-colors hover:text-secondary"
-          >
-            Termos de Uso
-          </a>
-          <a
-            href="https://linkedin.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1 text-label-lg text-on-surface-variant transition-colors hover:text-primary"
-          >
-            LinkedIn
-            <ExternalLink className="h-3.5 w-3.5" />
-          </a>
-        </nav>
+        <div className="flex flex-col items-center gap-md md:items-end">
+          <nav className="flex gap-lg" aria-label="Links do rodapé">
+            <a
+              href="#"
+              className="text-label-lg text-on-surface-variant transition-colors hover:text-secondary"
+            >
+              Privacidade
+            </a>
+            <a
+              href="#"
+              className="text-label-lg text-on-surface-variant transition-colors hover:text-secondary"
+            >
+              Termos de Uso
+            </a>
+          </nav>
+          <div className="flex items-center gap-sm">
+            {socials.map(({ label, href, Icon }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="flex h-10 w-10 items-center justify-center rounded-full text-on-surface-variant transition-colors duration-300 hover:bg-primary-fixed hover:text-primary"
+              >
+                <Icon weight="fill" className="h-5 w-5" />
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
     </footer>
   );

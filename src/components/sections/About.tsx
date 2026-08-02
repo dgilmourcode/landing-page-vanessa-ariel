@@ -1,6 +1,7 @@
 'use client';
 
-import { ArrowRight, HeartHandshake, Lightbulb } from 'lucide-react';
+import { HeartHandshake, Lightbulb } from 'lucide-react';
+import { LinkedinLogo } from '@phosphor-icons/react';
 import { ParallaxLayer } from '@/components/ui/ParallaxLayer';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import type { OptimizedImage } from '@/lib/image';
@@ -40,11 +41,6 @@ export function About({ image }: AboutProps) {
                   className="h-full w-full object-cover"
                   loading="lazy"
                 />
-              </div>
-              <div className="glass-card absolute bottom-5 right-5 z-20 hidden max-w-xs rounded-2xl p-lg shadow-xl lg:block">
-                <p className="text-body-lg italic text-primary">
-                  &quot;Pessoas não são recursos, são o coração do negócio.&quot;
-                </p>
               </div>
             </div>
           </ParallaxLayer>
@@ -92,7 +88,13 @@ export function About({ image }: AboutProps) {
             ))}
           </div>
 
-          <ScrollReveal delay={0.5} y={motionTokens.distance.sm}>
+          <ScrollReveal delay={0.45} y={motionTokens.distance.sm}>
+            <blockquote className="border-l-4 border-primary pl-md text-body-lg italic text-primary">
+              &quot;Pessoas não são recursos, são o coração do negócio.&quot;
+            </blockquote>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.55} y={motionTokens.distance.sm}>
             <a
               href="https://linkedin.com"
               target="_blank"
@@ -100,7 +102,10 @@ export function About({ image }: AboutProps) {
               className="group inline-flex items-center gap-sm font-bold text-primary"
             >
               Ver perfil no LinkedIn
-              <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+              <LinkedinLogo
+                weight="fill"
+                className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
+              />
             </a>
           </ScrollReveal>
         </div>
