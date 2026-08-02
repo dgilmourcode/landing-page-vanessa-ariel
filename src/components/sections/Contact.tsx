@@ -3,8 +3,7 @@
 import { type FormEvent, useState } from 'react';
 import { InstagramLogo, LinkedinLogo, WhatsappLogo } from '@phosphor-icons/react';
 import { Mail, Send } from 'lucide-react';
-import { ScrollReveal } from '@/components/ui/ScrollReveal';
-import { motionTokens } from '@/lib/motion-tokens';
+import { MotionIn } from '@/components/ui/MotionIn';
 
 const EMAIL = 'contato@vanessaariel.com.br';
 const WHATSAPP_URL = 'https://wa.me/5586994829203';
@@ -52,12 +51,12 @@ export function Contact() {
       </div>
 
       <div className="relative z-10 mx-auto grid w-full max-w-6xl grid-cols-1 gap-xl md:grid-cols-2">
-        <ScrollReveal y={motionTokens.distance.md}>
+        <MotionIn direction="left" className="min-w-0">
           <div className="flex h-full flex-col justify-center gap-md">
             <h2 className="text-headline-lg font-semibold text-white md:text-display-lg">
               Vamos conversar sobre o seu negócio?
             </h2>
-            <p className="max-w-lg text-body-lg text-white/80">
+            <p className="text-body-lg text-white/80">
               Preencha o formulário ou fale comigo diretamente. Vou entender as necessidades da sua
               empresa e propor o caminho mais humano e estratégico para o seu RH.
             </p>
@@ -114,9 +113,9 @@ export function Contact() {
               </a>
             </div>
           </div>
-        </ScrollReveal>
+        </MotionIn>
 
-        <ScrollReveal delay={0.15} y={motionTokens.distance.md}>
+        <MotionIn delay={0.15} direction="right">
           <form
             onSubmit={handleSubmit}
             className="flex flex-col gap-md rounded-3xl border border-white/20 bg-white/10 p-xl shadow-2xl backdrop-blur-md"
@@ -204,7 +203,7 @@ export function Contact() {
               armazenados no site.
             </p>
           </form>
-        </ScrollReveal>
+        </MotionIn>
       </div>
     </section>
   );

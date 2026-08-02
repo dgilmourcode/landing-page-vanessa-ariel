@@ -1,13 +1,17 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Calendar } from 'lucide-react';
+import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
+import { Calendar, Menu, X } from 'lucide-react';
 import { useScrollSpy } from '@/hooks/use-scroll-spy';
-import { NAV_SECTIONS } from '@/lib/sections';
+import { MENU_SECTIONS, NAV_SECTIONS } from '@/lib/sections';
+import { motionTokens } from '@/lib/motion-tokens';
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const activeId = useScrollSpy();
+  const reduce = useReducedMotion();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -15,6 +19,13 @@ export function Header() {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [menuOpen]);
 
   return (
     <header
@@ -29,11 +40,11 @@ export function Header() {
       >
         <a href="#inicio" className="flex items-center gap-sm" aria-label="Vanessa Ariel — início">
           <img
-            src="/logo-horizontal.png"
+            src="/logo-horizontal.webp"
             alt="Vanessa Ariel — Gestão de RH"
-            width={480}
-            height={320}
-            className="h-9 w-auto md:h-10"
+            width={2304}
+            height={1536}
+            className="h-14 w-auto md:h-16"
             loading="eager"
           />
         </a>
@@ -70,8 +81,74 @@ export function Header() {
             <Calendar className="h-4 w-4" />
             Agende uma Consultoria
           </a>
+
+          <button
+            type="button"
+            onClick={() => setMenuOpen((open) => !open)}
+            aria-expanded={menuOpen}
+            aria-controls="menu-mobile"
+            aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
+            className="flex h-11 w-11 items-center justify-center rounded-full text-primary transition-colors duration-300 hover:bg-primary-container/30 md:hidden"
+          >
+            {menuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
         </div>
       </div>
+
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            id="menu-mobile"
+            className="absolute inset-x-0 top-full flex flex-col border-b border-outline-variant bg-surface/95 backdrop-blur-md md:hidden"
+            initial={reduce ? { opacity: 0 } : { opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={reduce ? { opacity: 0 } : { opacity: 0, y: -12 }}
+            transition={{ duration: motionTokens.duration.fast, ease: motionTokens.easing.smooth }}
+          >
+            <nav className="flex flex-col gap-xs px-margin-mobile py-md" aria-label="Menu mobile">
+              {MENU_SECTIONS.map(({ id, label }, index) => {
+                const active = activeId === id;
+                return (
+                  <motion.a
+                    key={id}
+                    href={`#${id}`}
+                    onClick={() => setMenuOpen(false)}
+                    initial={reduce ? { opacity: 0 } : { opacity: 0, x: -16 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{
+                      delay: index * 0.04,
+                      duration: motionTokens.duration.fast,
+                      ease: motionTokens.easing.smooth,
+                    }}
+                    className={`flex items-center justify-between rounded-xl px-md py-sm text-headline-md transition-colors duration-200 ${
+                      active
+                        ? 'bg-primary-container text-on-primary-container'
+                        : 'hover:bg-surface-container'
+                    }`}
+                  >
+                    {label}
+                  </motion.a>
+                );
+              })}
+              <motion.a
+                href="#contato"
+                onClick={() => setMenuOpen(false)}
+                initial={reduce ? { opacity: 0 } : { opacity: 0, x: -16 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{
+                  delay: MENU_SECTIONS.length * 0.04,
+                  duration: motionTokens.duration.fast,
+                  ease: motionTokens.easing.smooth,
+                }}
+                className="mt-sm inline-flex items-center justify-center gap-sm rounded-full brand-gradient px-6 py-3.5 text-headline-md font-semibold text-white shadow-lg shadow-primary/20"
+              >
+                <Calendar className="h-5 w-5" />
+                Agende uma Consultoria
+              </motion.a>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

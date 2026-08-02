@@ -6,13 +6,18 @@ import '@fontsource/arimo/700.css';
 import '@/styles/global.css';
 import heroSection from '@/assets/hero-section.webp';
 import aboutSection from '@/assets/about-section.webp';
+import aboutWorkshop from '@/assets/about-workshop.webp';
 import pillarsSection from '@/assets/pilares-section.webp';
 import { SmoothScroll } from '@/components/smooth-scroll';
 import { Header } from '@/components/sections/Header';
 import { Hero } from '@/components/sections/Hero';
+import { Stats } from '@/components/sections/Stats';
+import { Investment } from '@/components/sections/Investment';
 import { About } from '@/components/sections/About';
 import { Pillars } from '@/components/sections/Pillars';
 import { Services } from '@/components/sections/Services';
+import { Workshop } from '@/components/sections/Workshop';
+import { Testimonials } from '@/components/sections/Testimonials';
 import { Faq } from '@/components/sections/Faq';
 import { Contact } from '@/components/sections/Contact';
 import { Footer } from '@/components/sections/Footer';
@@ -25,7 +30,8 @@ import { WhatsAppFloat } from '@/components/sections/WhatsAppFloat';
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/webp" href="/logo-icon.webp" />
+    <link rel="apple-touch-icon" href="/logo-icon.webp" />
     <title>Vanessa Ariel - Gestão de RH</title>
   </head>
   <body class="min-h-screen pb-16 md:pb-0">
@@ -33,9 +39,13 @@ import { WhatsAppFloat } from '@/components/sections/WhatsAppFloat';
     <Header client:load />
     <main>
       <Hero client:load background={heroSection} />
+      <Stats client:visible />
+      <Investment client:visible />
       <About client:visible image={aboutSection} />
       <Pillars client:visible background={pillarsSection} />
       <Services client:visible />
+      <Workshop client:visible image={aboutWorkshop} />
+      <Testimonials client:visible />
       <Faq client:visible />
       <Contact client:visible />
     </main>

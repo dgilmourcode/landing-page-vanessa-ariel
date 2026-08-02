@@ -3,7 +3,7 @@
 import type { ElementType } from 'react';
 import { CheckCircle2, GraduationCap, TrendingUp, UserSearch } from 'lucide-react';
 import { Card3D } from '@/components/ui/Card3D';
-import { ScrollReveal } from '@/components/ui/ScrollReveal';
+import { MotionIn } from '@/components/ui/MotionIn';
 import { ShakeIcon } from '@/components/ui/ShakeIcon';
 import { motionTokens } from '@/lib/motion-tokens';
 
@@ -47,20 +47,26 @@ export function Services() {
       className="scroll-mt-20 bg-surface-container-lowest px-margin-mobile py-xl md:px-margin-desktop"
     >
       <div className="mx-auto w-full max-w-7xl">
-        <ScrollReveal className="mb-xl space-y-sm text-center" y={motionTokens.distance.md}>
+        <MotionIn
+          direction="up"
+          distance={motionTokens.distance.md}
+          className="mb-xl space-y-sm text-center"
+        >
           <h2 className="text-headline-lg font-semibold text-primary">Nossas Especialidades</h2>
           <p className="mx-auto max-w-2xl text-body-md text-on-surface-variant">
             Desenvolvemos estratégias ponta a ponta para que seu RH seja o motor de crescimento da
             sua organização.
           </p>
-        </ScrollReveal>
+        </MotionIn>
 
         <div className="grid grid-cols-1 gap-lg md:grid-cols-3">
           {services.map((service, index) => (
-            <ScrollReveal
+            <MotionIn
               key={service.title}
               delay={index * 0.12}
-              y={motionTokens.distance.lg}
+              direction="up"
+              distance={motionTokens.distance.lg}
+              scale={0.96}
               className="h-full"
             >
               <Card3D
@@ -108,7 +114,7 @@ export function Services() {
                   ))}
                 </ul>
               </Card3D>
-            </ScrollReveal>
+            </MotionIn>
           ))}
         </div>
       </div>

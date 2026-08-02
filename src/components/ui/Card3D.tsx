@@ -37,6 +37,8 @@ export function Card3D({ children, className, maxTilt = 8 }: Card3DProps) {
       className={className}
       onMouseMove={handleMove}
       onMouseLeave={reset}
+      whileHover={{ y: -8, scale: 1.02 }}
+      transition={{ type: 'spring', stiffness: 260, damping: 20 }}
       style={{ rotateX: springX, rotateY: springY, transformPerspective: 1000 }}
     >
       {children}

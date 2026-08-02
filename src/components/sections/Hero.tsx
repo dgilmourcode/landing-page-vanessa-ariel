@@ -8,7 +8,10 @@ interface HeroProps {
 
 export function Hero({ background }: HeroProps) {
   return (
-    <section id="inicio" className="relative min-h-[90vh] scroll-mt-20">
+    <section
+      id="inicio"
+      className="relative aspect-[3/2] scroll-mt-20 sm:aspect-auto sm:min-h-[90svh]"
+    >
       <a
         href="#contato"
         aria-label="Agende uma consultoria"

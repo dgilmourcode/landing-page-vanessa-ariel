@@ -10,15 +10,27 @@ const socials = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-outline-variant bg-surface-container-highest px-margin-mobile py-xl md:px-margin-desktop">
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-md md:flex-row">
+    <footer className="relative overflow-hidden border-t border-outline-variant bg-surface-container-highest px-margin-mobile py-xl md:px-margin-desktop">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 flex items-center justify-center"
+      >
+        <img
+          src="/logo-texto.webp"
+          alt=""
+          className="h-[70%] w-auto -rotate-6 opacity-[0.06] grayscale"
+          loading="lazy"
+        />
+      </div>
+
+      <div className="relative mx-auto flex max-w-7xl flex-col items-center justify-between gap-md md:flex-row">
         <div className="flex flex-col items-center gap-sm md:items-start">
           <img
-            src="/logo-horizontal.png"
+            src="/logo-horizontal.webp"
             alt="Vanessa Ariel — Gestão de RH"
-            width={480}
-            height={320}
-            className="h-9 w-auto"
+            width={2304}
+            height={1536}
+            className="h-24 w-auto md:h-32"
             loading="lazy"
           />
           <p className="text-center text-body-md text-on-surface-variant md:text-left">
