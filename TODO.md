@@ -2,7 +2,7 @@
 
 ## Status Atual
 
-Landing completa com motion 3D (`MotionIn`), parallax, contadores dinâmicos, oferta "Invista no seu RH", menu mobile com hambúrguer e logos PNG corrigidos. Próximo passo: Fase 8 (SEO + Lighthouse + a11y) e validar valor da oferta.
+Landing completa com motion 3D (`MotionIn`), parallax, contadores dinâmicos, oferta "Invista no seu RH", menu mobile com hambúrguer, logos em WebP lossless (~250KB, PNGs de ~6MB removidos do histórico) e card de preço responsivo corrigido. Próximo passo: Fase 8 (SEO + Lighthouse + a11y), validar valor da oferta e reordenar foto do Sobre (descrição → foto → valores).
 
 ## Sessões
 
@@ -24,11 +24,13 @@ Landing completa com motion 3D (`MotionIn`), parallax, contadores dinâmicos, of
 | 2026-08-01 | Motion 3D cinematográfico: primitivo `MotionIn` (entradas up/down/left/right/fade com rotateX/rotateY + perspective, prop `scale`) aplicado em About (img esq/texto dir), Services (cards scale+fade), Contact (esq/dir); `Card3D` com hover translateY + scale; parallax nos Pilares (banner sem corte lateral) e nova seção `Workshop` (foto abaixo de Especialidades); FAQ inicia fechado |
 | 2026-08-01 | Seções novas abaixo do Hero: `Stats` (contadores dinâmicos `use-count-up` com IntersectionObserver + RAF, grid 2/4, números gradiente) e `Investment` (card oferta "Invista no seu RH": badge, benefícios, preço R$ 1.497 a partir de, CTA WhatsApp)                                                                                                                                         |
 | 2026-08-01 | Logos: PNGs transparentes novos em `public/` (`logo_horizontal_transparente.png`, `simbolo_apenas_transparente.png` favicon, `texto_apenas_transparente.png`); limpeza de fundo cinza via flood fill (halo semi-transparente removido); footer com marca d'água do logo-texto; removidos arquivos sem uso (webp, favicon.svg, png 1.7MB, hero-portrait.jpg)                                  |
-| 2026-08-01 | Responsivo: Hero mobile usa `aspect-[3/2]` (sem corte, proporção da imagem) + desktop `min-h-[90svh]`; menu mobile com hambúrguer no Header (drawer `AnimatePresence` com stagger, `MENU_SECTIONS` completo, scroll bloqueado); About com texto antes da imagem no mobile (`order`)                                                                                                          |
+| 2026-08-01 | Responsivo: Hero mobile usa `aspect-[3/2]` (sem corte, proporção da imagem) + desktop `min-h-[90svh]`; menu mobile com hambúrguer no Header (drawer `AnimatePresence` com stagger, `MENU_SECTIONS` completo, scroll bloqueado); About com texto antes da imagem no mobile (`order`)                                                                                                                                                          |
+| 2026-08-01 | Compressão: logos convertidos para WebP lossless em `public/` (`logo-horizontal.webp` 256KB, `logo-icon.webp` 614KB, `logo-texto.webp` 244KB) substituindo os PNGs; `about-workshop.webp` otimizado (874KB → 27KB); PNGs e .jpg/.svg sem uso removidos; refs atualizadas (Header, Footer, favicon). Histórico reescrito: commit Fase 8.1 (que continha PNGs ~6MB) substituído por Fase 8.2 via force push. Card de preço do Investment responsivo (font 36px no mobile, `max-w-xs` no desktop, sem corte). |
+| 2026-08-02 | Commit `Fase 8.2` (bcea858) enviado com `--force-with-lease` (2bb833b → bcea858). Pendente: reordenar foto do Sobre (descrição → foto → valores) e validação visual do usuário. |
 
 ## Pendências
 
 - Fase 8: SEO (meta description + Open Graph) + Lighthouse + a11y
 - Confirmar valor/parcelamento da oferta "Invista no seu RH" (placeholder R$ 1.497)
 - Validação visual do usuário: contadores, card de oferta, menu mobile, parallax
-- Considerar versão webp comprimida dos logos (PNG atuais ~2.3MB cada) se o tamanho do deploy pesar
+- Reordenar foto do Sobre: descrição → foto → valores (Acolhimento/Estratégia) para não colar na imagem dos Pilares
