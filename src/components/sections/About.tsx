@@ -41,8 +41,8 @@ export function About({ image }: AboutProps) {
                   loading="lazy"
                 />
               </div>
-              <div className="absolute -bottom-6 -right-6 hidden rounded-2xl bg-surface-container-highest p-xl shadow-lg lg:block">
-                <p className="max-w-xs text-body-lg italic text-primary">
+              <div className="glass-card absolute bottom-5 right-5 z-20 hidden max-w-xs rounded-2xl p-lg shadow-xl lg:block">
+                <p className="text-body-lg italic text-primary">
                   &quot;Pessoas não são recursos, são o coração do negócio.&quot;
                 </p>
               </div>
