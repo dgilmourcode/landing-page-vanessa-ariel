@@ -26,7 +26,7 @@ export function Hero({ background }: HeroProps) {
       <MotionIn
         direction="up"
         delay={0.3}
-        className="absolute bottom-28 left-0 z-10 px-8 sm:bottom-32 sm:px-16 md:bottom-36 md:px-24"
+        className="absolute bottom-36 left-0 z-10 px-10 sm:bottom-40 sm:px-20 md:bottom-44 md:px-28"
       >
         <a
           href="#contato"
