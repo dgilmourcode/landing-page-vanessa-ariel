@@ -11,7 +11,7 @@ export function Hero({ background }: HeroProps) {
   return (
     <section
       id="inicio"
-      className="relative aspect-[3/2] scroll-mt-20 sm:aspect-auto sm:min-h-[75svh]"
+      className="relative aspect-[3/2] scroll-mt-16 sm:aspect-auto sm:min-h-[55svh]"
     >
       <img
         src={background.src}
@@ -26,7 +26,7 @@ export function Hero({ background }: HeroProps) {
       <MotionIn
         direction="up"
         delay={0.3}
-        className="absolute bottom-36 left-0 z-10 px-10 sm:bottom-40 sm:px-20 md:bottom-44 md:px-28"
+        className="absolute bottom-36 left-0 z-10 px-10 sm:bottom-40 sm:px-20 md:bottom-46 md:px-40"
       >
         <a
           href="#contato"
