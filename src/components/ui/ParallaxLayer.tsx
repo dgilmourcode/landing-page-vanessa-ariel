@@ -9,6 +9,7 @@ interface ParallaxLayerProps {
   style?: CSSProperties;
   speed?: number;
   maxOffset?: number;
+  scale?: number;
 }
 
 export function ParallaxLayer({
@@ -17,6 +18,7 @@ export function ParallaxLayer({
   style,
   speed = 0.5,
   maxOffset = 120,
+  scale = 1,
 }: ParallaxLayerProps) {
   const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
@@ -35,7 +37,7 @@ export function ParallaxLayer({
 
   return (
     <div ref={ref} className={className} style={style}>
-      <motion.div style={{ y }}>{children}</motion.div>
+      <motion.div style={{ y, scale }}>{children}</motion.div>
     </div>
   );
 }

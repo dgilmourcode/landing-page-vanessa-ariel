@@ -17,7 +17,7 @@ export function Workshop({ image }: WorkshopProps) {
       <div className="mx-auto max-w-5xl">
         <MotionIn direction="up" distance={56}>
           <div className="overflow-hidden rounded-3xl shadow-2xl">
-            <ParallaxLayer speed={0.15} className="aspect-[16/9] w-full">
+            <ParallaxLayer speed={0.15} scale={1.08} className="aspect-[16/9] w-full">
               <img
                 src={image.src}
                 srcSet={image.srcSet}
