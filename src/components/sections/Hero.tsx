@@ -12,7 +12,7 @@ export function Hero({ background }: HeroProps) {
   return (
     <section
       id="inicio"
-      className="relative aspect-[3/2] scroll-mt-20 sm:aspect-auto sm:min-h-[85svh]"
+      className="relative aspect-[3/2] scroll-mt-20 sm:aspect-auto sm:min-h-[75svh]"
     >
       <ParallaxLayer speed={0.2} maxOffset={60}>
         <img
@@ -29,7 +29,7 @@ export function Hero({ background }: HeroProps) {
       <MotionIn
         direction="up"
         delay={0.3}
-        className="absolute inset-x-0 bottom-12 flex justify-center px-4"
+        className="absolute bottom-16 left-0 z-10 px-6 sm:bottom-20 sm:px-12 md:bottom-24 md:px-20"
       >
         <a
           href="#contato"
