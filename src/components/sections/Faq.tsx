@@ -59,45 +59,44 @@ export function Faq() {
                   delay: index * 0.08,
                   ease: [0.16, 1, 0.3, 1],
                 }}
+                whileHover={{ y: -4, boxShadow: '0 20px 40px -10px rgba(92,0,131,0.15)' }}
+                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                className={`overflow-hidden rounded-2xl border bg-surface-container-lowest transition-[border-color,box-shadow,transform] duration-300 ${
+                  isOpen
+                    ? 'border-primary/30 shadow-lg shadow-primary/5'
+                    : 'border-outline-variant'
+                }`}
               >
-                <div
-                  className={`overflow-hidden rounded-2xl border bg-surface-container-lowest transition-[border-color,box-shadow] duration-300 ${
-                    isOpen
-                      ? 'border-primary/30 shadow-lg shadow-primary/5'
-                      : 'border-outline-variant'
-                  }`}
+                <button
+                  type="button"
+                  onClick={() => setOpen(isOpen ? null : index)}
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-resposta-${index}`}
+                  className="flex w-full items-center justify-between gap-sm px-md py-sm text-left"
                 >
-                  <button
-                    type="button"
-                    onClick={() => setOpen(isOpen ? null : index)}
-                    aria-expanded={isOpen}
-                    aria-controls={`faq-resposta-${index}`}
-                    className="flex w-full items-center justify-between gap-sm px-md py-sm text-left"
-                  >
-                    <span className="text-headline-md font-semibold text-primary">{faq.q}</span>
-                    {isOpen ? (
-                      <Minus className="h-5 w-5 shrink-0 text-primary" />
-                    ) : (
-                      <Plus className="h-5 w-5 shrink-0 text-primary" />
-                    )}
-                  </button>
+                  <span className="text-headline-md font-semibold text-primary">{faq.q}</span>
+                  {isOpen ? (
+                    <Minus className="h-5 w-5 shrink-0 text-primary" />
+                  ) : (
+                    <Plus className="h-5 w-5 shrink-0 text-primary" />
+                  )}
+                </button>
 
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
-                      <motion.div
-                        key="conteudo"
-                        id={`faq-resposta-${index}`}
-                        className="overflow-hidden"
-                        initial={reduce ? undefined : { height: 0, opacity: 0 }}
-                        animate={reduce ? undefined : { height: 'auto', opacity: 1 }}
-                        exit={reduce ? undefined : { height: 0, opacity: 0 }}
-                        transition={reduce ? undefined : springs.snappy}
-                      >
-                        <p className="px-md pb-md text-body-md text-on-surface-variant">{faq.a}</p>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      key="conteudo"
+                      id={`faq-resposta-${index}`}
+                      className="overflow-hidden"
+                      initial={reduce ? undefined : { height: 0, opacity: 0 }}
+                      animate={reduce ? undefined : { height: 'auto', opacity: 1 }}
+                      exit={reduce ? undefined : { height: 0, opacity: 0 }}
+                      transition={reduce ? undefined : springs.snappy}
+                    >
+                      <p className="px-md pb-md text-body-md text-on-surface-variant">{faq.a}</p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </motion.div>
             );
           })}

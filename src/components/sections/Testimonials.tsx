@@ -50,26 +50,32 @@ export function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{
-                duration: 0.4,
+                duration: 0.5,
                 delay: index * 0.08,
                 ease: [0.16, 1, 0.3, 1],
               }}
+              whileHover={{
+                y: -8,
+                scale: 1.015,
+                boxShadow: '0 30px 60px -12px rgba(92,0,131,0.25)',
+                borderColor: 'rgba(92,0,131,0.3)',
+              }}
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="glass-card flex h-full flex-col rounded-3xl p-xl"
             >
-              <figure className="glass-card flex h-full flex-col rounded-3xl p-xl transition-transform duration-300 hover:-translate-y-1.5">
-                <Quote className="mb-md h-8 w-8 text-secondary" />
-                <div className="mb-md flex gap-0.5" aria-label="5 de 5 estrelas">
-                  {Array.from({ length: 5 }).map((_, star) => (
-                    <Star key={star} className="h-4 w-4 fill-secondary text-secondary" />
-                  ))}
-                </div>
-                <blockquote className="flex-1 text-body-md text-on-surface-variant">
-                  "{item.quote}"
-                </blockquote>
-                <figcaption className="mt-md border-t border-outline-variant pt-md">
-                  <p className="text-headline-md font-semibold text-primary">{item.name}</p>
-                  <p className="text-label-sm text-on-surface-variant">{item.role}</p>
-                </figcaption>
-              </figure>
+              <Quote className="mb-md h-8 w-8 text-secondary" />
+              <div className="mb-md flex gap-0.5" aria-label="5 de 5 estrelas">
+                {Array.from({ length: 5 }).map((_, star) => (
+                  <Star key={star} className="h-4 w-4 fill-secondary text-secondary" />
+                ))}
+              </div>
+              <blockquote className="flex-1 text-body-md text-on-surface-variant">
+                "{item.quote}"
+              </blockquote>
+              <figcaption className="mt-md border-t border-outline-variant pt-md">
+                <p className="text-headline-md font-semibold text-primary">{item.name}</p>
+                <p className="text-label-sm text-on-surface-variant">{item.role}</p>
+              </figcaption>
             </motion.div>
           ))}
         </div>
