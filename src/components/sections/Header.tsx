@@ -44,7 +44,7 @@ export function Header() {
             alt="Vanessa Ariel — Gestão de RH"
             width={2304}
             height={1536}
-            className="h-14 w-auto md:h-16"
+            className="h-6 w-auto md:h-8"
             loading="eager"
           />
         </a>

@@ -30,10 +30,10 @@ export function Footer() {
             alt="Vanessa Ariel — Gestão de RH"
             width={2304}
             height={1536}
-            className="h-24 w-auto md:h-32"
+            className="h-6 w-auto md:h-8"
             loading="lazy"
           />
-          <p className="text-center text-body-md text-on-surface-variant md:text-left">
+          <p className="text-center text-body-md text-on-surface-variant md:text-left m-4">
             © 2026 Vanessa Ariel — Gestão de RH. Todos os direitos reservados.
           </p>
         </div>
