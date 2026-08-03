@@ -2,7 +2,7 @@
 
 ## Status Atual
 
-Landing completa com motion 3D (`MotionIn`), parallax, contadores dinâmicos, seção informativa "Invista na qualidade do seu RH" (sem preço), menu mobile com hambúrguer e logos em WebP lossless (~250KB, PNGs de ~6MB removidos do histórico). Próximo passo: Fase 8 (SEO + Lighthouse + a11y) e reordenar foto do Sobre (descrição → foto → valores).
+Landing completa com motion 3D (`MotionIn`), parallax, contadores dinâmicos, seção informativa "Invista na qualidade do seu RH" (sem preço), menu mobile com hambúrguer e logos em WebP lossless (~250KB, PNGs de ~6MB removidos do histórico). WhatsAppFloat removido. Contatos: `vanessaarielmatos@gmail.com` / `@vanessaarielbrito`. Próximo passo: Fase 8 (SEO + Lighthouse + a11y).
 
 ## Sessões
 
@@ -28,9 +28,9 @@ Landing completa com motion 3D (`MotionIn`), parallax, contadores dinâmicos, se
 | 2026-08-01 | Compressão: logos convertidos para WebP lossless em `public/` (`logo-horizontal.webp` 256KB, `logo-icon.webp` 614KB, `logo-texto.webp` 244KB) substituindo os PNGs; `about-workshop.webp` otimizado (874KB → 27KB); PNGs e .jpg/.svg sem uso removidos; refs atualizadas (Header, Footer, favicon). Histórico reescrito: commit Fase 8.1 (que continha PNGs ~6MB) substituído por Fase 8.2 via force push. Card de preço do Investment responsivo (font 36px no mobile, `max-w-xs` no desktop, sem corte). |
 | 2026-08-02 | Commit `Fase 8.2` (bcea858) enviado com `--force-with-lease` (2bb833b → bcea858). Pendente: reordenar foto do Sobre (descrição → foto → valores) e validação visual do usuário.                                                                                                                                                                                                                                                                                                                            |
 | 2026-08-02 | Investment ajustada: preço (R$ 1.497/parcelas) removido — é informativo; badge trocada para "Consultoria estratégica"; título "Invista na qualidade do seu RH"; card direito centralizado (`items-center text-center`) com frase "Torne seu RH um pilar de crescimento da sua empresa" + CTA "Quero saber mais" (pill `w-full` no mobile com `text-body-lg` p/ não vazar, `md:w-auto` + `text-headline-md` no desktop).                                                                                    |
+| 2026-08-02 | Contatos: e-mail → `vanessaarielmatos@gmail.com`, Instagram → `@vanessaarielbrito`. Formulário Contact: tela de sucesso (`sent` state, `form.reset()`, `CheckCircle2` verde + "Enviar nova mensagem"). WhatsAppFloat removido (componente + uso). Nav desktop corrigida (Sobre antes de Serviços). Footer: marca d'água removida (`logo-texto.webp` deletado). Sobre: `grid` 2 colunas (desktop: foto esquerda + texto direita, mobile: descrição → foto → cards Acolhimento/Estratégia). Fotos comprimidas: about 1MB→49KB, workshop 1.3MB→32KB, hero 147KB→65KB, pilares 1.9MB→92KB (quality 88). |
 
 ## Pendências
 
 - Fase 8: SEO (meta description + Open Graph) + Lighthouse + a11y
 - Validação visual do usuário: contadores, card informativo do Investment, menu mobile, parallax
-- Reordenar foto do Sobre: descrição → foto → valores (Acolhimento/Estratégia) para não colar na imagem dos Pilares

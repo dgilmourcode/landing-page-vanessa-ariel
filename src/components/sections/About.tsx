@@ -42,7 +42,7 @@ export function About({ image }: AboutProps) {
           </MotionIn>
 
           <MotionIn delay={0.2} direction="right">
-            <p className="text-body-md text-on-surface-variant">
+            <p className="m-2 text-body-md text-on-surface-variant">
               Minha missão é desmistificar o RH transacional e elevar a área ao seu papel
               fundamental: parceira estratégica do negócio. Através de uma visão sistêmica e
               acolhedora, auxilio empreendedores a construir culturas fortes e equipes de alta
@@ -105,7 +105,7 @@ export function About({ image }: AboutProps) {
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-sm font-bold text-primary"
+              className="m-4 group inline-flex items-center gap-sm font-bold text-primary"
             >
               Ver perfil no LinkedIn
               <LinkedinLogo
