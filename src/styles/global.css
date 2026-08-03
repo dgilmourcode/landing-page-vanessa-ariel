@@ -98,6 +98,10 @@
   --spacing-margin-mobile: 16px;
   --spacing-margin-desktop: 64px;
 
+  /* Altura da Hero (desktop — editável aqui) */
+  --h-hero: 500px;
+  --h-hero-parallax-scale: 1.1;
+
   /* Raio */
   --radius-sm: 0.25rem;
   --radius-md: 0.75rem;
