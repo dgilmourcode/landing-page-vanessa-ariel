@@ -2,7 +2,6 @@
 
 import { useRef } from 'react';
 import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react';
-import { MotionIn } from '@/components/ui/MotionIn';
 import type { OptimizedImage } from '@/lib/image';
 
 interface HeroProps {
@@ -39,9 +38,10 @@ export function Hero({ background }: HeroProps) {
         className="h-full w-full object-cover object-[40%_center] sm:object-[20%_center]"
       />
 
-      <MotionIn
-        direction="up"
-        delay={0.3}
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
         className="absolute bottom-10 left-0 z-10 px-10 sm:bottom-40 sm:px-20 md:bottom-32 md:px-42"
       >
         <a
@@ -50,7 +50,7 @@ export function Hero({ background }: HeroProps) {
         >
           Agendar Consultoria
         </a>
-      </MotionIn>
+      </motion.div>
     </section>
   );
 }
