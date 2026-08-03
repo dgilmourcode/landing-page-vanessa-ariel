@@ -12,8 +12,8 @@ import { SmoothScroll } from '@/components/smooth-scroll';
 import { Header } from '@/components/sections/Header';
 import { Hero } from '@/components/sections/Hero';
 import { Stats } from '@/components/sections/Stats';
-import { Investment } from '@/components/sections/Investment';
 import { About } from '@/components/sections/About';
+import { Investment } from '@/components/sections/Investment';
 import { Pillars } from '@/components/sections/Pillars';
 import { Services } from '@/components/sections/Services';
 import { Workshop } from '@/components/sections/Workshop';
@@ -39,8 +39,8 @@ import { LGPDBanner } from '@/components/sections/LGPDBanner';
     <main>
       <Hero client:load background={heroSection} />
       <Stats client:visible />
-      <Investment client:visible />
       <About client:visible image={aboutSection} />
+      <Investment client:visible />
       <Pillars client:visible background={pillarsSection} />
       <Services client:visible />
       <Workshop client:visible image={aboutWorkshop} />

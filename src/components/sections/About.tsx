@@ -1,11 +1,9 @@
 'use client';
 
-import { HeartHandshake, Lightbulb } from 'lucide-react';
+import { HeartHandshake, Lightbulb, Award } from 'lucide-react';
 import { LinkedinLogo } from '@phosphor-icons/react';
-import { MotionIn } from '@/components/ui/MotionIn';
-import { ParallaxLayer } from '@/components/ui/ParallaxLayer';
+import { motion } from 'motion/react';
 import type { OptimizedImage } from '@/lib/image';
-import { motionTokens } from '@/lib/motion-tokens';
 
 interface AboutProps {
   image: OptimizedImage;
@@ -20,95 +18,152 @@ const values = [
   { title: 'Estratégia', description: 'Foco em resultados sustentáveis.', icon: Lightbulb },
 ];
 
+const stats = [
+  { value: '10+', label: 'anos de experiência' },
+  { value: '500+', label: 'profissionais avaliados' },
+];
+
 export function About({ image }: AboutProps) {
   return (
-    <section id="sobre" className="scroll-mt-20 px-margin-mobile py-xl md:px-margin-desktop">
-      <div className="mx-auto grid w-full max-w-[85rem] grid-cols-1 items-center gap-xl md:grid-cols-2">
-        <div className="min-w-0 md:col-start-2 md:row-start-1">
-          <MotionIn direction="right">
-            <h2 className="text-headline-lg font-semibold text-primary">Sobre Vanessa Ariel</h2>
-            <div className="mt-base mb-md h-1 w-20 rounded-full brand-gradient" />
-          </MotionIn>
+    <section id="sobre" className="px-margin-mobile py-xl md:px-margin-desktop">
+      <div className="mx-auto grid w-full max-w-[85rem] grid-cols-1 items-start gap-xl lg:grid-cols-2 lg:gap-16">
+        {/* Texto — entrada lateral da esquerda */}
+        <div>
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="inline-block text-label-sm font-medium uppercase tracking-[0.2em] text-primary">
+              Quem sou
+            </span>
+          </motion.div>
 
-          <MotionIn delay={0.1} direction="right">
-            <p className="text-body-lg text-on-surface-variant">
-              Com uma trajetória dedicada à psicologia organizacional e gestão estratégica, Vanessa
-              Ariel acredita que o sucesso de uma empresa está intrinsecamente ligado ao bem-estar e
-              desenvolvimento de seus colaboradores.
-            </p>
-          </MotionIn>
+          <motion.h2
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.6, delay: 0.08 }}
+            className="mt-2 text-3xl font-semibold leading-tight tracking-tight text-primary text-balance sm:text-4xl"
+          >
+            Sobre Vanessa Ariel
+          </motion.h2>
 
-          <MotionIn delay={0.2} direction="right">
-            <p className="m-2 text-body-md text-on-surface-variant">
-              Minha missão é desmistificar o RH transacional e elevar a área ao seu papel
-              fundamental: parceira estratégica do negócio. Através de uma visão sistêmica e
-              acolhedora, auxilio empreendedores a construir culturas fortes e equipes de alta
-              performance.
-            </p>
-          </MotionIn>
-        </div>
+          <motion.p
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.6, delay: 0.16 }}
+            className="mt-4 text-lg leading-relaxed text-on-surface-variant"
+          >
+            Com uma trajetória dedicada à psicologia organizacional e gestão estratégica, Vanessa
+            Ariel acredita que o sucesso de uma empresa está intrinsecamente ligado ao bem-estar e
+            ao desenvolvimento dos seus colaboradores.
+          </motion.p>
 
-        <div className="relative w-full md:col-start-1 md:row-span-2 md:row-start-1">
-          <MotionIn direction="left" distance={motionTokens.distance.xl} className="relative z-0">
-            <div className="aspect-[5/6] overflow-hidden rounded-3xl shadow-2xl">
-              <ParallaxLayer speed={0.12}>
-                <img
-                  src={image.src}
-                  srcSet={image.srcSet}
-                  sizes={image.sizes}
-                  width={image.width}
-                  height={image.height}
-                  alt="Vanessa Ariel conduzindo um workshop corporativo com equipe em sala moderna."
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                />
-              </ParallaxLayer>
-            </div>
-          </MotionIn>
-        </div>
+          <motion.p
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.6, delay: 0.24 }}
+            className="mt-4 text-base leading-relaxed text-on-surface-variant"
+          >
+            Minha missão é desmistificar o RH transacional e elevá-lo ao papel fundamental de
+            parceira estratégica do negócio: construir culturas fortes e equipes de alta
+            performance.
+          </motion.p>
 
-        <div className="min-w-0 md:col-start-2 md:row-start-2">
-          <div className="grid grid-cols-2 gap-md py-md">
-            {values.map((value, index) => (
-              <MotionIn
+          {/* Cards de valores */}
+          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {values.map((value, i) => (
+              <motion.div
                 key={value.title}
-                delay={0.3 + index * 0.1}
-                direction="up"
-                distance={motionTokens.distance.md}
-                className="h-full"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: '-30px' }}
+                transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
+                className="flex items-start gap-4 rounded-2xl bg-surface-container-low p-5"
               >
-                <div className="h-full rounded-xl bg-surface-container-low p-base">
-                  <div className="mb-sm flex h-10 w-10 items-center justify-center rounded-full bg-secondary-fixed-dim/40 text-secondary">
-                    <value.icon className="h-5 w-5" />
-                  </div>
-                  <h4 className="text-headline-md font-semibold text-secondary">{value.title}</h4>
-                  <p className="text-label-sm text-on-surface-variant">{value.description}</p>
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-secondary-fixed-dim/40 text-secondary">
+                  <value.icon className="h-5 w-5" />
+                </span>
+                <div>
+                  <h3 className="text-lg font-semibold text-secondary">{value.title}</h3>
+                  <p className="mt-1 text-sm text-on-surface-variant">{value.description}</p>
                 </div>
-              </MotionIn>
+              </motion.div>
             ))}
           </div>
 
-          <MotionIn delay={0.45} direction="right" distance={motionTokens.distance.sm}>
-            <blockquote className="border-l-4 border-primary pl-md text-body-lg italic text-primary">
-              &quot;Pessoas não são recursos, são o coração do negócio.&quot;
-            </blockquote>
-          </MotionIn>
+          {/* Stats */}
+          <div className="mt-8 grid grid-cols-2 gap-6">
+            {stats.map((stat, i) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: '-30px' }}
+                transition={{ duration: 0.5, delay: 0.4 + i * 0.1 }}
+              >
+                <span className="brand-text-gradient text-3xl font-bold tabular-nums">
+                  {stat.value}
+                </span>
+                <p className="text-sm text-on-surface-variant">{stat.label}</p>
+              </motion.div>
+            ))}
+          </div>
 
-          <MotionIn delay={0.55} direction="right" distance={motionTokens.distance.sm}>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="m-4 group inline-flex items-center gap-sm font-bold text-primary"
-            >
-              Ver perfil no LinkedIn
-              <LinkedinLogo
-                weight="fill"
-                className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
-              />
-            </a>
-          </MotionIn>
+          <motion.a
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-30px' }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="group mt-8 inline-flex items-center gap-2 text-base font-bold text-primary"
+          >
+            Ver perfil no LinkedIn
+            <LinkedinLogo
+              weight="fill"
+              className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
+            />
+          </motion.a>
         </div>
+
+        {/* Foto — entrada lateral da direita + selo de destaque */}
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+        >
+          <div className="relative">
+            <div className="aspect-[4/5] overflow-hidden rounded-3xl shadow-2xl">
+              <img
+                src={image.src}
+                srcSet={image.srcSet}
+                sizes={image.sizes}
+                width={image.width}
+                height={image.height}
+                alt="Vanessa Ariel conduzindo um workshop corporativo com equipe em sala moderna."
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
+            </div>
+
+            <div className="glass-card absolute -bottom-5 left-5 flex items-center gap-3 rounded-2xl p-4 shadow-xl">
+              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+                <Award className="h-5 w-5" />
+              </span>
+              <div>
+                <p className="text-sm font-semibold text-on-surface">Psicóloga Organizacional</p>
+                <p className="text-xs text-on-surface-variant">RH estratégico</p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -8,7 +8,7 @@ interface ParallaxLayerProps {
   className?: string;
   style?: CSSProperties;
   speed?: number;
-  factor?: number;
+  maxOffset?: number;
 }
 
 export function ParallaxLayer({
@@ -16,7 +16,7 @@ export function ParallaxLayer({
   className,
   style,
   speed = 0.5,
-  factor = 1.15,
+  maxOffset = 120,
 }: ParallaxLayerProps) {
   const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
@@ -24,28 +24,18 @@ export function ParallaxLayer({
     target: ref,
     offset: ['start end', 'end start'],
   });
-  const y = useTransform(scrollYProgress, [0, 1], [-(speed * 100), speed * 100]);
+  const y = useTransform(scrollYProgress, [0, 1], [maxOffset * speed, -maxOffset * speed]);
 
   if (reduce)
     return (
-      <div className={`overflow-hidden ${className ?? ''}`} style={style}>
-        <div className="h-full w-full">{children}</div>
+      <div className={className} style={style}>
+        {children}
       </div>
     );
 
   return (
-    <div ref={ref} className={`overflow-hidden ${className ?? ''}`} style={style}>
-      {/* scale > 1 garante que o translateY nunca exponha borda */}
-      <motion.div
-        className="h-full w-full"
-        style={{
-          y,
-          scale: factor,
-          willChange: 'transform',
-        }}
-      >
-        {children}
-      </motion.div>
+    <div ref={ref} className={className} style={style}>
+      <motion.div style={{ y }}>{children}</motion.div>
     </div>
   );
 }
