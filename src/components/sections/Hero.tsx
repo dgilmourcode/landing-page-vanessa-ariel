@@ -15,9 +15,17 @@ export function Hero({ background }: HeroProps) {
       <a
         href="#contato"
         aria-label="Agende uma consultoria"
-        className="absolute inset-0 block bg-cover bg-[position:40%_center] sm:bg-[position:20%_center]"
-        style={{ backgroundImage: `url(${background.src})` }}
+        className="absolute inset-0 block"
       >
+        <img
+          src={background.src}
+          srcSet={background.srcSet}
+          sizes={background.sizes}
+          width={background.width}
+          height={background.height}
+          alt="Vanessa Ariel — Gestão de RH"
+          className="h-full w-full object-cover object-[50%_center] sm:object-[20%_center]"
+        />
         <span className="sr-only">Agende uma consultoria — vá para a seção de contato</span>
       </a>
     </section>
