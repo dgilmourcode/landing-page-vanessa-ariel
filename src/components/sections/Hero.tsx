@@ -15,7 +15,7 @@ export function Hero({ background }: HeroProps) {
     target: ref,
     offset: ['start start', 'end start'],
   });
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '5%']);
+  const y = useTransform(scrollYProgress, [0, 1], ['0%', '2%']);
 
   return (
     <section
@@ -42,7 +42,7 @@ export function Hero({ background }: HeroProps) {
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-        className="absolute bottom-10 left-0 z-10 px-10 sm:bottom-40 sm:px-20 md:bottom-32 md:px-42"
+        className="absolute bottom-10 left-0 z-10 px-10 sm:bottom-40 sm:px-20 md:bottom-42 md:px-32"
       >
         <a
           href="#contato"

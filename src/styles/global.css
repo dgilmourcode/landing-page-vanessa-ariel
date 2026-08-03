@@ -100,7 +100,7 @@
 
   /* Altura da Hero (desktop — editável aqui) */
   --h-hero: 32rem;
-  --h-hero-parallax-scale: 1.1;
+  --h-hero-parallax-scale: 1.02;
 
   /* Raio */
   --radius-sm: 0.25rem;
