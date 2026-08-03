@@ -24,7 +24,7 @@ export function About({ image }: AboutProps) {
   return (
     <section
       id="sobre"
-      className="scroll-mt-20 overflow-hidden px-margin-mobile py-xl md:px-margin-desktop"
+      className="scroll-mt-20 px-margin-mobile py-xl md:px-margin-desktop"
     >
       <div className="mx-auto grid w-full max-w-[85rem] grid-cols-1 items-center gap-xl md:grid-cols-2">
         <div className="min-w-0 md:col-start-2 md:row-start-1">
