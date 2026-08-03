@@ -23,15 +23,6 @@ export function Investment() {
       <div className="mx-auto max-w-7xl">
         <MotionIn direction="up" distance={motionTokens.distance.md} tilt>
           <div className="relative overflow-hidden rounded-3xl brand-gradient p-xl md:p-2xl">
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute -right-16 -top-16 h-72 w-72 rounded-full bg-white opacity-10 blur-3xl"
-            />
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute -bottom-20 -left-16 h-72 w-72 rounded-full bg-white opacity-10 blur-3xl"
-            />
-
             <div className="relative flex min-w-0 flex-col gap-xl md:flex-row md:items-center md:gap-xl">
               <div className="min-w-0 flex-1">
                 <span className="inline-flex items-center gap-sm rounded-full bg-white/15 px-4 py-1.5 text-label-sm font-semibold uppercase tracking-widest text-white">
@@ -59,7 +50,7 @@ export function Investment() {
               </div>
 
               <div className="w-full md:w-80 md:shrink-0">
-                <div className="flex flex-col items-center gap-md rounded-2xl bg-white/10 p-xl backdrop-blur-md text-center">
+                <div className="flex flex-col items-center gap-md rounded-2xl bg-white/15 p-xl text-center">
                   <p className="text-balance text-body-lg font-semibold leading-snug text-white">
                     Torne seu RH um pilar de crescimento da sua empresa
                   </p>
