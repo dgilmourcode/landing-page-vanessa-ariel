@@ -49,7 +49,17 @@ export function Faq() {
           {faqs.map((faq, index) => {
             const isOpen = open === index;
             return (
-              <ScrollReveal key={faq.q} delay={index * 0.05} y={motionTokens.distance.md}>
+              <motion.div
+                key={faq.q}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{
+                  duration: 0.4,
+                  delay: index * 0.08,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+              >
                 <div
                   className={`overflow-hidden rounded-2xl border bg-surface-container-lowest transition-[border-color,box-shadow] duration-300 ${
                     isOpen
@@ -88,7 +98,7 @@ export function Faq() {
                     )}
                   </AnimatePresence>
                 </div>
-              </ScrollReveal>
+              </motion.div>
             );
           })}
         </div>
