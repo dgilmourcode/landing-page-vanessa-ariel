@@ -99,7 +99,7 @@
   --spacing-margin-desktop: 64px;
 
   /* Altura da Hero (desktop — editável aqui) */
-  --h-hero: 500px;
+  --h-hero: 32rem;
   --h-hero-parallax-scale: 1.1;
 
   /* Raio */
