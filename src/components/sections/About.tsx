@@ -3,7 +3,6 @@
 import { HeartHandshake, Lightbulb } from 'lucide-react';
 import { LinkedinLogo } from '@phosphor-icons/react';
 import { MotionIn } from '@/components/ui/MotionIn';
-import { ParallaxLayer } from '@/components/ui/ParallaxLayer';
 import type { OptimizedImage } from '@/lib/image';
 import { motionTokens } from '@/lib/motion-tokens';
 
@@ -52,22 +51,18 @@ export function About({ image }: AboutProps) {
         </div>
 
         <div className="relative w-full md:col-start-1 md:row-span-2 md:row-start-1">
-          <ParallaxLayer speed={0.12} maxOffset={80}>
-            <div className="relative">
-              <div className="aspect-[5/6] overflow-hidden rounded-3xl shadow-2xl">
-                <img
-                  src={image.src}
-                  srcSet={image.srcSet}
-                  sizes={image.sizes}
-                  width={image.width}
-                  height={image.height}
-                  alt="Vanessa Ariel conduzindo um workshop corporativo com equipe em sala moderna."
-                  className="h-full w-full object-cover"
-                  loading="eager"
-                />
-              </div>
-            </div>
-          </ParallaxLayer>
+          <div className="aspect-[5/6] overflow-hidden rounded-3xl shadow-2xl">
+            <img
+              src={image.src}
+              srcSet={image.srcSet}
+              sizes={image.sizes}
+              width={image.width}
+              height={image.height}
+              alt="Vanessa Ariel conduzindo um workshop corporativo com equipe em sala moderna."
+              className="h-full w-full object-cover"
+              loading="lazy"
+            />
+          </div>
         </div>
 
         <div className="min-w-0 md:col-start-2 md:row-start-2">

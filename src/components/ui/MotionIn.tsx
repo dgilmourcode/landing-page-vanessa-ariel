@@ -1,8 +1,7 @@
 'use client';
 
-import type { ReactNode } from 'react';
-import { motion, useReducedMotion } from 'motion/react';
-import { motionTokens } from '@/lib/motion-tokens';
+import { useRef, type ReactNode } from 'react';
+import { motion, useInView, useReducedMotion } from 'motion/react';
 
 export type MotionInDirection = 'up' | 'down' | 'left' | 'right' | 'fade';
 
@@ -16,12 +15,12 @@ interface MotionInProps {
   tilt?: boolean;
 }
 
-const origins: Record<MotionInDirection, string> = {
-  up: 'center bottom',
-  down: 'center top',
-  left: 'left center',
-  right: 'right center',
-  fade: 'center',
+const directionMap = {
+  up: { x: 0, y: 1 },
+  down: { x: 0, y: -1 },
+  left: { x: 1, y: 0 },
+  right: { x: -1, y: 0 },
+  fade: { x: 0, y: 0 },
 };
 
 export function MotionIn({
@@ -33,30 +32,40 @@ export function MotionIn({
   scale = 1,
   tilt = false,
 }: MotionInProps) {
+  const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
+  const isInView = useInView(ref, { once: true, margin: '-80px' });
 
-  const initial = reduce
-    ? { opacity: 0 }
-    : {
-        opacity: 0,
-        scale,
-        x: 0,
-        y: 0,
-        ...(direction === 'left' && { x: -distance }),
-        ...(direction === 'right' && { x: distance }),
-        ...(direction === 'up' && { y: distance }),
-        ...(direction === 'down' && { y: -distance }),
-        ...(tilt && { rotateX: 22 }),
-      };
+  if (reduce) return <div className={className}>{children}</div>;
+
+  const dir = directionMap[direction];
+
+  const target = {
+    opacity: 1,
+    scale: 1,
+    x: 0,
+    y: 0,
+    rotateX: 0,
+  };
 
   return (
     <motion.div
+      ref={ref}
       className={className}
-      style={tilt ? { transformPerspective: 1000, transformOrigin: origins[direction] } : undefined}
-      initial={initial}
-      whileInView={{ opacity: 1, scale: 1, x: 0, y: 0, ...(tilt && { rotateX: 0 }) }}
-      viewport={{ once: true, margin: '-64px' }}
-      transition={{ duration: motionTokens.duration.slow, delay, ease: motionTokens.easing.smooth }}
+      style={{ willChange: 'transform, opacity' }}
+      initial={{
+        opacity: 0,
+        x: dir.x * distance,
+        y: dir.y * distance,
+        scale,
+        ...(tilt && { rotateX: 22 }),
+      }}
+      animate={isInView ? target : {}}
+      transition={{
+        duration: 0.6,
+        delay,
+        ease: [0.16, 1, 0.3, 1],
+      }}
     >
       {children}
     </motion.div>
