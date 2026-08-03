@@ -28,18 +28,12 @@ export function Footer() {
 
         <div className="flex flex-col items-center gap-md md:items-end">
           <nav className="flex gap-lg" aria-label="Links do rodapé">
-            <a
-              href="#"
-              className="text-label-lg text-on-surface-variant transition-colors hover:text-secondary"
-            >
+            <span className="cursor-default text-label-lg text-on-surface-variant transition-colors hover:text-secondary">
               Privacidade
-            </a>
-            <a
-              href="#"
-              className="text-label-lg text-on-surface-variant transition-colors hover:text-secondary"
-            >
+            </span>
+            <span className="cursor-default text-label-lg text-on-surface-variant transition-colors hover:text-secondary">
               Termos de Uso
-            </a>
+            </span>
           </nav>
           <div className="flex items-center gap-sm">
             {socials.map(({ label, href, Icon }) => (

@@ -51,10 +51,7 @@ export function About({ image }: AboutProps) {
           </MotionIn>
         </div>
 
-        <MotionIn
-          direction="left"
-          className="relative w-full md:col-start-1 md:row-span-2 md:row-start-1"
-        >
+        <div className="relative w-full md:col-start-1 md:row-span-2 md:row-start-1">
           <ParallaxLayer speed={0.12} maxOffset={80}>
             <div className="relative">
               <div className="aspect-[5/6] overflow-hidden rounded-3xl shadow-2xl">
@@ -66,12 +63,12 @@ export function About({ image }: AboutProps) {
                   height={image.height}
                   alt="Vanessa Ariel conduzindo um workshop corporativo com equipe em sala moderna."
                   className="h-full w-full object-cover"
-                  loading="lazy"
+                  loading="eager"
                 />
               </div>
             </div>
           </ParallaxLayer>
-        </MotionIn>
+        </div>
 
         <div className="min-w-0 md:col-start-2 md:row-start-2">
           <div className="grid grid-cols-2 gap-md py-md">
