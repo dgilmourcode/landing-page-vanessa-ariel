@@ -25,6 +25,7 @@
 
 - Sem chaves/secrets no client. Sem backend/Supabase nesta fase.
 - Animações só em `transform`/`opacity` (nunca layout); easing consistente; `prefers-reduced-motion` + gate low-end
+- **Regra crítica (aprendida com bug):** elementos acima da dobra (CTA do Hero) devem usar `initial`+`animate` no mount, NUNCA `whileInView` — `whileInView` + `absolute` + transform dispara no mesmo frame do Lenis e congela o scroll ao cruzar outras seções no desktop
 - Guard de montagem SSR-safe (initial = output do servidor) para evitar hydration mismatch
 - Logos em WebP lossless em `public/` (`logo-horizontal.webp` no Header/Footer, `logo-icon.webp` favicon/apple-touch-icon); marca d'água do Footer (`logo-texto.webp`) removida. Fotos em `src/assets/` comprimidas (quality 88) passadas como props às ilhas React (import de asset dentro de componente React no Astro retorna `[object Object]` — evitar)
 - Fonte/ícones sem CDN externo
