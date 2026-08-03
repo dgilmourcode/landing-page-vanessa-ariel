@@ -15,13 +15,13 @@ export function Hero({ background }: HeroProps) {
     target: ref,
     offset: ['start start', 'end start'],
   });
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '2%']);
+  const y = useTransform(scrollYProgress, [0, 1], ['0%', '18%']);
 
   return (
     <section
       ref={ref}
       id="inicio"
-      className="relative aspect-[16/9] scroll-mt-16 overflow-hidden sm:aspect-auto sm:h-hero"
+      className="relative aspect-[16/9] scroll-mt-16 overflow-hidden sm:aspect-auto sm:h-[95svh]"
     >
       <motion.img
         src={background.src}
@@ -32,17 +32,17 @@ export function Hero({ background }: HeroProps) {
         alt=""
         style={{
           y: reduce ? '0%' : y,
-          scale: reduce ? 1 : 'var(--h-hero-parallax-scale)',
+          scale: 1.15,
           willChange: 'transform',
         }}
-        className="h-full w-full object-cover"
+        className="h-full w-full object-cover object-[40%_42%] sm:object-[20%_20%]"
       />
 
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-        className="absolute bottom-10 left-0 z-10 px-10 sm:bottom-40 sm:px-20 md:bottom-42 md:px-32"
+        className="absolute bottom-10 left-0 z-10 px-10 sm:bottom-40 sm:px-20 md:bottom-20 md:px-24"
       >
         <a
           href="#contato"
