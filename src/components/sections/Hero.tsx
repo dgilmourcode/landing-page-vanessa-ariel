@@ -26,13 +26,13 @@ export function Hero({ background }: HeroProps) {
       <MotionIn
         direction="up"
         delay={0.3}
-        className="absolute bottom-20 left-0 z-10 px-6 sm:bottom-22 sm:px-12 md:bottom-24 md:px-20"
+        className="absolute bottom-28 left-0 z-10 px-8 sm:bottom-32 sm:px-16 md:bottom-36 md:px-24"
       >
         <a
           href="#contato"
-          className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent px-6 py-3 text-body-sm font-semibold text-white shadow-lg transition-transform duration-200 hover:scale-105 md:px-8 md:py-6 md:text-headline-md"
+          className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-secondary px-5 py-2.5 text-body-sm font-medium text-white shadow-md transition-all duration-200 hover:shadow-xl hover:scale-105 md:px-7 md:py-3 md:text-body-lg"
         >
-          Quero saber mais
+          Agendar Consultoria
         </a>
       </MotionIn>
     </section>
