@@ -12,7 +12,7 @@ export function Pillars({ background }: PillarsProps) {
   return (
     <section id="pilares" aria-label="Nossos Pilares de Atuação" className="scroll-mt-20">
       <MotionIn direction="fade">
-        <ParallaxLayer speed={0.15} maxOffset={80}>
+        <ParallaxLayer speed={0.2} className="aspect-[16/9] w-full">
           <img
             src={background.src}
             srcSet={background.srcSet}
@@ -21,7 +21,7 @@ export function Pillars({ background }: PillarsProps) {
             height={background.height}
             alt="Nossos Pilares de Atuação"
             loading="lazy"
-            className="h-auto w-full"
+            className="h-full w-full object-cover"
           />
         </ParallaxLayer>
       </MotionIn>

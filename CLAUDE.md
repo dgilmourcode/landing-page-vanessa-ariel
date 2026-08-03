@@ -1,6 +1,6 @@
 # CLAUDE.md — Vanessa Ariel · Gestão de RH
 
-Última atualização: 2026-08-02
+Última atualização: 2026-08-03
 
 ## Stack
 
@@ -14,7 +14,7 @@
 - Página única: `src/pages/index.astro`; seções como ilhas React em `src/components/sections/`; primitivos de motion/UI em `src/components/ui/`
 - Tokens de motion centralizados em `src/lib/motion-tokens.ts` (tokens, springs, gates de device/reduced-motion)
 - `src/hooks/use-safe-motion.ts` = wrapper a11y de reduced motion; `src/hooks/use-count-up.ts` = contador animado (IntersectionObserver + RAF, ease-out cubic, suporta reduced-motion)
-- Entradas de seção: `MotionIn` (3D cinematográfico — direções up/down/left/right/fade com rotateX/rotateY + perspective, prop `scale`) e `ScrollReveal` (fade+slide simples); parallax via `ParallaxLayer` (translate Y, desativado em reduced-motion)
+- Entradas de seção: `MotionIn` (variants + `whileInView`, direções up/down/left/right/fade, `viewport once margin -60px`, SSR-safe) e `ScrollReveal` (fade+slide simples); parallax via `ParallaxLayer` (container `overflow-hidden` + `motion.div` com `scale`>1, desativado em reduced-motion)
 - Ordem no `index.astro`: Hero → Stats → Investment → About → Pillars → Services → Workshop → Testimonials → Faq → Contact
 - `src/lib/sections.ts`: `NAV_SECTIONS` (desktop: Início, Sobre, Serviços, Contato) e `MENU_SECTIONS` (menu mobile hambúrguer, completo)
 - Contatos: `vanessaarielmatos@gmail.com`, Instagram `@vanessaarielbrito`, WhatsApp `(86) 99482-9203`

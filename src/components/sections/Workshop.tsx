@@ -14,10 +14,10 @@ export function Workshop({ image }: WorkshopProps) {
       aria-label="Vanessa Ariel em workshop corporativo"
       className="scroll-mt-20 px-margin-mobile py-xl md:px-margin-desktop"
     >
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-5xl">
         <MotionIn direction="up" distance={56}>
           <div className="overflow-hidden rounded-3xl shadow-2xl">
-            <ParallaxLayer speed={0.15} maxOffset={80}>
+            <ParallaxLayer speed={0.15} className="aspect-[16/9] w-full">
               <img
                 src={image.src}
                 srcSet={image.srcSet}
@@ -26,7 +26,7 @@ export function Workshop({ image }: WorkshopProps) {
                 height={image.height}
                 alt="Vanessa Ariel conduzindo um workshop corporativo com a equipe"
                 loading="lazy"
-                className="h-auto w-full scale-[1.08]"
+                className="h-full w-full object-cover"
               />
             </ParallaxLayer>
           </div>

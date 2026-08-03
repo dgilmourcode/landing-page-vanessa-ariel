@@ -1,5 +1,7 @@
 'use client';
 
+import { useRef } from 'react';
+import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react';
 import { MotionIn } from '@/components/ui/MotionIn';
 import type { OptimizedImage } from '@/lib/image';
 
@@ -8,18 +10,32 @@ interface HeroProps {
 }
 
 export function Hero({ background }: HeroProps) {
+  const ref = useRef<HTMLElement>(null);
+  const reduce = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start start', 'end start'],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], ['0%', '18%']);
+
   return (
     <section
+      ref={ref}
       id="inicio"
-      className="relative aspect-[16/9] scroll-mt-16 sm:aspect-auto sm:h-[90svh]"
+      className="relative aspect-[16/9] scroll-mt-16 overflow-hidden sm:aspect-auto sm:h-[90svh]"
     >
-      <img
+      <motion.img
         src={background.src}
         srcSet={background.srcSet}
         sizes={background.sizes}
         width={background.width}
         height={background.height}
         alt=""
+        style={{
+          y: reduce ? '0%' : y,
+          scale: 1.15,
+          willChange: 'transform',
+        }}
         className="h-full w-full object-cover object-[40%_center] sm:object-[20%_center]"
       />
 

@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, type ReactNode } from 'react';
-import { motion, useInView, useReducedMotion } from 'motion/react';
+import { motion, useReducedMotion, type Variants } from 'motion/react';
 
 export type MotionInDirection = 'up' | 'down' | 'left' | 'right' | 'fade';
 
@@ -12,16 +12,15 @@ interface MotionInProps {
   delay?: number;
   distance?: number;
   scale?: number;
-  tilt?: boolean;
 }
 
 const directionMap = {
-  up: { x: 0, y: 1 },
-  down: { x: 0, y: -1 },
-  left: { x: 1, y: 0 },
-  right: { x: -1, y: 0 },
+  up: { x: 0, y: 56 },
+  down: { x: 0, y: -56 },
+  left: { x: -56, y: 0 },
+  right: { x: 56, y: 0 },
   fade: { x: 0, y: 0 },
-};
+} as const;
 
 export function MotionIn({
   children,
@@ -30,42 +29,42 @@ export function MotionIn({
   delay = 0,
   distance = 56,
   scale = 1,
-  tilt = false,
 }: MotionInProps) {
   const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
-
-  if (reduce) return <div className={className}>{children}</div>;
-
   const dir = directionMap[direction];
+  const factor = distance / 56;
 
-  const target = {
-    opacity: 1,
-    scale: 1,
-    x: 0,
-    y: 0,
-    rotateX: 0,
-  };
+  const variants: Variants = reduce
+    ? {}
+    : {
+        hidden: {
+          opacity: 0,
+          x: dir.x * factor,
+          y: dir.y * factor,
+          scale,
+        },
+        visible: {
+          opacity: 1,
+          x: 0,
+          y: 0,
+          scale: 1,
+          transition: {
+            duration: 0.6,
+            delay,
+            ease: [0.16, 1, 0.3, 1],
+          },
+        },
+      };
 
   return (
     <motion.div
       ref={ref}
       className={className}
-      style={{ willChange: 'transform, opacity' }}
-      initial={{
-        opacity: 0,
-        x: dir.x * distance,
-        y: dir.y * distance,
-        scale,
-        ...(tilt && { rotateX: 22 }),
-      }}
-      animate={isInView ? target : {}}
-      transition={{
-        duration: 0.6,
-        delay,
-        ease: [0.16, 1, 0.3, 1],
-      }}
+      variants={variants}
+      initial={reduce ? false : 'hidden'}
+      whileInView={reduce ? undefined : 'visible'}
+      viewport={{ once: true, margin: '-60px' }}
     >
       {children}
     </motion.div>
