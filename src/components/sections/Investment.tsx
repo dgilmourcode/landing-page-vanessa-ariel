@@ -21,7 +21,7 @@ export function Investment() {
       className="scroll-mt-20 px-margin-mobile pb-xl md:px-margin-desktop"
     >
       <div className="mx-auto max-w-7xl">
-        <MotionIn direction="up" distance={motionTokens.distance.md}>
+        <MotionIn direction="up" distance={motionTokens.distance.md} tilt>
           <div className="relative overflow-hidden rounded-3xl brand-gradient p-xl md:p-2xl">
             <div
               aria-hidden="true"

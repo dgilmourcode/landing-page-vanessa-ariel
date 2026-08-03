@@ -13,6 +13,7 @@ interface MotionInProps {
   delay?: number;
   distance?: number;
   scale?: number;
+  tilt?: boolean;
 }
 
 const origins: Record<MotionInDirection, string> = {
@@ -30,6 +31,7 @@ export function MotionIn({
   delay = 0,
   distance = 56,
   scale = 1,
+  tilt = false,
 }: MotionInProps) {
   const reduce = useReducedMotion();
 
@@ -44,13 +46,15 @@ export function MotionIn({
         ...(direction === 'right' && { x: distance }),
         ...(direction === 'up' && { y: distance }),
         ...(direction === 'down' && { y: -distance }),
+        ...(tilt && { rotateX: 22 }),
       };
 
   return (
     <motion.div
       className={className}
+      style={tilt ? { transformPerspective: 1000, transformOrigin: origins[direction] } : undefined}
       initial={initial}
-      whileInView={{ opacity: 1, scale: 1, x: 0, y: 0 }}
+      whileInView={{ opacity: 1, scale: 1, x: 0, y: 0, ...(tilt && { rotateX: 0 }) }}
       viewport={{ once: true, margin: '-64px' }}
       transition={{ duration: motionTokens.duration.slow, delay, ease: motionTokens.easing.smooth }}
     >
