@@ -11,7 +11,7 @@ export function Hero({ background }: HeroProps) {
   return (
     <section
       id="inicio"
-      className="relative aspect-[3/2] scroll-mt-16 sm:aspect-auto sm:min-h-[55svh]"
+      className="relative aspect-[16/9] scroll-mt-16 sm:aspect-auto sm:min-h-[55svh]"
     >
       <img
         src={background.src}
