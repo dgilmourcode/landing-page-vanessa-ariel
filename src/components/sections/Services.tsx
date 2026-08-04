@@ -57,34 +57,35 @@ export function Services() {
         <MotionIn
           direction="up"
           distance={motionTokens.distance.md}
-          className="mb-xl space-y-sm text-center"
+          className="mb-16 space-y-4 text-center"
         >
-          <h2 className="text-headline-lg font-semibold text-primary">Nossas Especialidades</h2>
-          <p className="mx-auto max-w-2xl text-body-md text-on-surface-variant">
+          <h2 className="text-headline-lg font-semibold text-primary md:text-display-lg">
+            Nossas Especialidades
+          </h2>
+          <p className="mx-auto max-w-2xl text-body-lg text-on-surface-variant">
             Desenvolvemos estratégias ponta a ponta para que seu RH seja o motor de crescimento da
             sua organização.
           </p>
         </MotionIn>
 
-        <div className="grid grid-cols-1 gap-lg md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 md:gap-8 lg:grid-cols-4 lg:gap-10">
           {services.map((service, index) => (
             <MotionIn
               key={service.title}
-              delay={index * 0.12}
+              delay={index * 0.1}
               direction="up"
-              distance={motionTokens.distance.lg}
-              scale={0.96}
+              distance={motionTokens.distance.md}
               className="h-full"
             >
               <Card3D
-                className={`group flex h-full flex-col rounded-3xl p-xl ${
+                className={`group flex h-full flex-col rounded-3xl p-8 ${
                   service.featured
                     ? 'brand-gradient text-white shadow-2xl shadow-primary/20'
                     : 'glass-card'
                 }`}
               >
                 <div
-                  className={`mb-md flex h-16 w-16 items-center justify-center rounded-2xl transition-colors duration-300 ${
+                  className={`mb-6 flex h-14 w-14 items-center justify-center rounded-2xl transition-colors duration-300 ${
                     service.featured ? 'bg-white/20' : 'bg-primary/10 group-hover:bg-primary'
                   }`}
                 >
@@ -93,30 +94,30 @@ export function Services() {
                       service.featured ? 'text-white' : 'text-primary group-hover:text-white'
                     }
                   >
-                    <service.icon className="h-8 w-8" />
+                    <service.icon className="h-9 w-9" />
                   </ShakeIcon>
                 </div>
 
                 <h3
-                  className={`mb-sm text-headline-md font-semibold ${service.featured ? '' : 'text-primary'}`}
+                  className={`mb-3 text-headline-md font-semibold ${service.featured ? '' : 'text-primary'}`}
                 >
                   {service.title}
                 </h3>
                 <p
-                  className={`mb-md text-body-md ${service.featured ? 'text-white/90' : 'text-on-surface-variant'}`}
+                  className={`mb-6 text-body-md leading-relaxed ${service.featured ? 'text-white/90' : 'text-on-surface-variant'}`}
                 >
                   {service.description}
                 </p>
 
                 <ul
-                  className={`mt-auto space-y-xs text-label-lg ${service.featured ? 'text-white/80' : 'text-on-surface-variant'}`}
+                  className={`mt-auto space-y-3 text-label-lg ${service.featured ? 'text-white/80' : 'text-on-surface-variant'}`}
                 >
                   {service.items.map((item) => (
-                    <li key={item} className="flex items-center gap-2">
+                    <li key={item} className="flex items-start gap-3">
                       <CheckCircle2
-                        className={`h-4 w-4 ${service.featured ? 'text-white' : 'text-secondary'}`}
+                        className={`h-5 w-5 shrink-0 mt-0.5 ${service.featured ? 'text-white' : 'text-secondary'}`}
                       />
-                      {item}
+                      <span>{item}</span>
                     </li>
                   ))}
                 </ul>

@@ -40,15 +40,15 @@ export function Testimonials() {
       id="depoimentos"
       className="scroll-mt-20 bg-surface-container-lowest px-margin-mobile py-xl md:px-margin-desktop"
     >
-      <div className="mx-auto max-w-6xl">
-        <ScrollReveal className="mb-xl text-center" y={motionTokens.distance.md}>
+      <div className="mx-auto max-w-7xl">
+        <ScrollReveal className="mb-16 text-center" y={motionTokens.distance.md}>
           <h2 className="text-headline-lg font-semibold text-primary md:text-display-lg">
             O que dizem quem já trabalhou comigo
           </h2>
-          <div className="mx-auto mt-base h-1 w-20 rounded-full brand-gradient" />
+          <div className="mx-auto mt-4 h-1 w-24 rounded-full brand-gradient" />
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 gap-md md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 md:gap-8 lg:grid-cols-4 lg:gap-10">
           {testimonials.map((item, index) => (
             <motion.div
               key={item.name}
@@ -67,20 +67,20 @@ export function Testimonials() {
                 borderColor: 'rgba(92,0,131,0.3)',
               }}
               transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="glass-card flex h-full flex-col rounded-3xl p-xl"
+              className="glass-card flex h-full flex-col rounded-3xl p-8"
             >
-              <Quote className="mb-md h-8 w-8 text-secondary" />
-              <div className="mb-md flex gap-0.5" aria-label="5 de 5 estrelas">
+              <Quote className="mb-6 h-9 w-9 text-secondary" />
+              <div className="mb-6 flex gap-1" aria-label="5 de 5 estrelas">
                 {Array.from({ length: 5 }).map((_, star) => (
-                  <Star key={star} className="h-4 w-4 fill-secondary text-secondary" />
+                  <Star key={star} className="h-5 w-5 fill-secondary text-secondary" />
                 ))}
               </div>
-              <blockquote className="flex-1 text-body-md text-on-surface-variant">
+              <blockquote className="flex-1 text-body-md leading-relaxed text-on-surface-variant">
                 "{item.quote}"
               </blockquote>
-              <figcaption className="mt-md border-t border-outline-variant pt-md">
+              <figcaption className="mt-8 border-t border-outline-variant pt-6">
                 <p className="text-headline-md font-semibold text-primary">{item.name}</p>
-                <p className="text-label-sm text-on-surface-variant">{item.role}</p>
+                <p className="mt-1 text-label-sm text-on-surface-variant">{item.role}</p>
               </figcaption>
             </motion.div>
           ))}
