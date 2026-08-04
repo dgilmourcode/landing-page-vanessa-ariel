@@ -125,7 +125,7 @@ export function Contact() {
                 <CheckCircle2 className="h-9 w-9" />
               </span>
               <h3 className="text-headline-lg font-semibold text-white">Mensagem enviada!</h3>
-              <p className="max-w-sm text-body-md text-white/80">
+              <p className="max-w-2xl text-body-md text-white/80">
                 Sua mensagem foi aberta no WhatsApp com tudo preenchido. Em breve retorno o seu
                 contato. Muito obrigada!
               </p>

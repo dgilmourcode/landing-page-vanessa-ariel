@@ -30,7 +30,7 @@ export function Newsletter() {
           <h2 className="text-headline-lg font-semibold text-primary md:text-display-lg">
             Receba insights de RH
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-body-lg text-on-surface-variant">
+          <p className="mx-auto mt-4 max-w-2xl text-body-lg text-on-surface-variant">
             Dicas práticas, casos reais e tendências de gestão de pessoas direto no seu e-mail.
             Sem spam, só conteúdo útil.
           </p>
@@ -97,7 +97,7 @@ export function Newsletter() {
                 <h3 className="text-headline-lg font-semibold text-primary mb-2">
                   Inscrito com sucesso!
                 </h3>
-                <p className="text-body-lg text-on-surface-variant max-w-xl mx-auto">
+                <p className="text-body-lg text-on-surface-variant max-w-2xl mx-auto">
                   Obrigado por se inscrever. Em breve você receberá nossos melhores conteúdos.
                 </p>
                 <button
