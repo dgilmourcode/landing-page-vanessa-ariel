@@ -44,6 +44,7 @@ const services: Service[] = [
       'Programas customizados para formar líderes que inspiram, comunicam com assertividade e geram resultados sustentáveis.',
     icon: GraduationCap,
     items: ['Mentoria executiva', 'Feedback 360°', 'Gestão de conflitos'],
+    featured: true,
   },
 ];
 
@@ -81,7 +82,7 @@ export function Services() {
                 className={`group flex h-full flex-col rounded-3xl p-8 ${
                   service.featured
                     ? 'brand-gradient text-white shadow-2xl shadow-primary/20'
-                    : 'glass-card'
+                    : 'glass-card-strong'
                 }`}
               >
                 <div

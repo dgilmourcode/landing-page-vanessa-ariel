@@ -42,7 +42,7 @@ export function Hero({ background }: HeroProps) {
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-        className="absolute bottom-10 left-0 z-10 px-10 sm:bottom-40 sm:px-20 md:bottom-20 md:px-24"
+        className="absolute bottom-10 left-0 z-10 px-10 sm:bottom-40 sm:px-20 md:bottom-20 md:px-24 lg:bottom-32 lg:px-32 xl:bottom-40 xl:px-40"
       >
         <a
           href="#contato"
