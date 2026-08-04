@@ -38,6 +38,13 @@ const services: Service[] = [
     icon: TrendingUp,
     items: ['Clima Organizacional', 'Plano de Carreira', 'Employer Branding'],
   },
+  {
+    title: 'Desenvolvimento de Liderança',
+    description:
+      'Programas customizados para formar líderes que inspiram, comunicam com assertividade e geram resultados sustentáveis.',
+    icon: GraduationCap,
+    items: ['Mentoria executiva', 'Feedback 360°', 'Gestão de conflitos'],
+  },
 ];
 
 export function Services() {
@@ -59,7 +66,7 @@ export function Services() {
           </p>
         </MotionIn>
 
-        <div className="grid grid-cols-1 gap-lg md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-lg md:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
             <MotionIn
               key={service.title}

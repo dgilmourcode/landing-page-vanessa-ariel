@@ -24,6 +24,12 @@ const testimonials = [
     name: 'Camila Ferreira',
     role: 'Fundadora · Loja Vera',
   },
+  {
+    quote:
+      'A metodologia aplicada trouxe clareza para nossos processos de gestão de pessoas. Hoje temos métricas claras e uma cultura de feedback contínuo.',
+    name: 'Bruno Oliveira',
+    role: 'Diretor de Operações · Mesa Sul',
+  },
 ];
 
 export function Testimonials() {
@@ -42,7 +48,7 @@ export function Testimonials() {
           <div className="mx-auto mt-base h-1 w-20 rounded-full brand-gradient" />
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 gap-md md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-md md:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((item, index) => (
             <motion.div
               key={item.name}
