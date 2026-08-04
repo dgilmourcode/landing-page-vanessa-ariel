@@ -62,9 +62,7 @@ export function Faq() {
                 whileHover={{ y: -4, boxShadow: '0 20px 40px -10px rgba(92,0,131,0.15)' }}
                 transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                 className={`overflow-hidden rounded-2xl border bg-surface-container-lowest transition-[border-color,box-shadow,transform] duration-300 ${
-                  isOpen
-                    ? 'border-primary/30 shadow-lg shadow-primary/5'
-                    : 'border-outline-variant'
+                  isOpen ? 'border-primary/30 shadow-lg shadow-primary/5' : 'glass-card-strong'
                 }`}
               >
                 <button

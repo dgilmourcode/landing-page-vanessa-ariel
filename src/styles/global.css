@@ -177,6 +177,21 @@
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+@utility glass-card-strong {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px rgba(92, 0, 131, 0.12);
+}
+
+@utility glass-card-subtle {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
 @utility glass-card-dark {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(12px);
